@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'IBMPlexSans';
-    src: url('../../assets/fonts/IBMPlexSans-Regular.ttf') format('woff2'),
-        url('../../assets/fonts/IBMPlexSans-Regular.ttf') format(' woff');
+    src: url('../../assets/fonts/IBMPlexSans-Regular.ttf') format('ttf'),
+        url('../../assets/fonts/IBMPlexSans-Regular.ttf') format(' ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -70,6 +70,10 @@
     color: #191C1F;
     font-family: IBMPlexSans;
     text-decoration: none;
+}
+
+.main-nav-container-flex {
+    display: flex;
 }
 
 .filters {
@@ -186,7 +190,7 @@
         margin-top: 22px;
     }
 
-    .filter-flex {
+    .range-filter-container {
         width: 50%;
         display: flex;
         justify-content: space-between;
@@ -204,8 +208,4 @@
         max-width: 95%;
         margin-left: 5%;
     }
-}
-
-.main-nav-container-flex {
-    display: flex;
 }

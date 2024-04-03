@@ -60,7 +60,6 @@ const Header = () => {
                             name="size-type"
                             placeholder="Наличие"
                         />
-
                         <input
                             type="text"
                             name="size-type"
@@ -109,7 +108,7 @@ const Header = () => {
                             name="size-type"
                             placeholder="Наличие"
                         />
-                        <div className='filter-flex'>
+                        <div className='range-filter-container'>
                             <input
                                 type="text"
                                 name="size-type"
@@ -123,7 +122,7 @@ const Header = () => {
                                 className="input-flex"
                             />
                         </div>
-                        <div className='filter-flex'>
+                        <div className='range-filter-container'>
                             <input
                                 type="text"
                                 name="size-type"
