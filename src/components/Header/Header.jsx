@@ -20,8 +20,8 @@ const Header = () => {
                         <img src="/icons/logo.svg" alt="Logo" />
                     </div>
                     <div className="auth-buttons">
-                        <button className="login-btn">Вход</button>
-                        <button className="register-btn">Регистрация</button>
+                        <button className="btn btn-trans">Вход</button>
+                        <button className="btn btn-blue">Регистрация</button>
                     </div>
                 </div>
             </div>

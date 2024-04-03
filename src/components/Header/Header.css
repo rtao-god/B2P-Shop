@@ -33,27 +33,34 @@
     gap: 16px;
 }
 
-.login-btn,
-.register-btn {
+.btn {
+    padding: 8px 16px;
     border-radius: 12px;
-    padding: 8px 16px 8px 16px;
     border: 0;
-    font-family: IBMPlexSans;
+    font-family: 'IBMPlexSans';
     line-height: 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.login-btn {
+.btn-blue {
+    background-color: #75ADE4;
+    color: #FFFFFF;
+    padding: 8px 31.5px;
+}
+
+.btn-trans {
     background-color: #D1E4F6;
     color: #1976D2;
     padding: 8px 24.5px;
 }
 
-.register-btn {
-    background-color: #75ADE4;
-    color: #FFFFFF;
-    font-family: IBMPlexSans;
-    padding: 8px 31.5px;
+.btn-large {
+    padding: 12px 24px;
+}
+
+.btn:hover {
+    opacity: 0.8;
 }
 
 .main-nav {
@@ -69,7 +76,7 @@
 
 .main-nav a {
     color: #191C1F;
-    font-family: IBMPlexSans;
+    font-family: 'IBMPlexSans';
     text-decoration: none;
 }
 
@@ -92,7 +99,7 @@
 
 .filters input {
     width: 100%;
-    font-family: IBMPlexSans;
+    font-family: 'IBMPlexSans';
     font-size: 16px;
     color: #ABABAD;
     border: 0;
@@ -121,6 +128,7 @@
     cursor: pointer;
     color: white;
     padding: 10px 36px;
+    padding-left: 46px;
     background-color: #1976D2;
     border: none;
 }
@@ -205,6 +213,9 @@
         max-width: 97%;
         margin-left: 2.5%;
         margin-top: 22px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        line-height: 20px;
     }
 
     .range-filter-container {
@@ -232,12 +243,6 @@
 }
 
 @media (max-width: 320px) {
-
-    .login-btn,
-    .register-btn {
-        padding: 8px 10px;
-    }
-
     .filters input,
     .search-btn {
         padding: 10px;
