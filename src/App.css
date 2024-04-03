@@ -1,6 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   max-width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 @media (max-width: 1175px) {
