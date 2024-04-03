@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'IBMPlexSans';
-    src: url('../../assets/fonts/IBMPlexSans-Regular.ttf') format('ttf'),
-        url('../../assets/fonts/IBMPlexSans-Regular.ttf') format(' ttf');
+    src: url('../../assets/fonts/IBMPlexSans-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
 
 .top-bar {
     position: relative;
@@ -129,13 +129,13 @@
         position: fixed;
         left: 50%;
         bottom: 0%;
-        transform: translate(-50%, -50%); 
-        width: auto; 
+        transform: translate(-50%, -50%);
+        width: auto;
         box-shadow: 8px 12px 32px 0px #1976D252;
         justify-content: center;
         padding: 10px 20px;
         background-color: rgba(255, 255, 255, 0.9);
-        gap: 16px; 
+        gap: 16px;
     }
 
     .logo-container {
