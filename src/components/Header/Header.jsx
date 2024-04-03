@@ -113,13 +113,11 @@ const Header = () => {
                                 type="text"
                                 name="size-type"
                                 placeholder="Цена от   ₽"
-                                className="input-flex"
                             />
                             <input
                                 type="text"
                                 name="size-type"
                                 placeholder="Цена до   ₽"
-                                className="input-flex"
                             />
                         </div>
                         <div className='range-filter-container'>

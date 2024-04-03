@@ -1,3 +1,10 @@
 .App {
+  max-width: 100%;
   overflow: hidden;
+}
+
+@media (max-width: 1175px) {
+  .App {
+    margin-right: -35px;
+  }
 }

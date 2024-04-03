@@ -92,7 +92,7 @@
 }
 
 .filters input {
-    width: 100px;
+    max-width: 100px;
     font-family: IBMPlexSans;
     font-size: 16px;
     color: #ABABAD;
@@ -127,12 +127,15 @@
 }
 
 @media (max-width: 1175px) {
+    .container {
+        max-width: auto;
+    }
+
     .auth-buttons {
         position: fixed;
         left: 50%;
         bottom: 0%;
         transform: translate(-50%, -50%);
-        width: auto;
         box-shadow: 8px 12px 32px 0px #1976D252;
         justify-content: center;
         padding: 16px;
@@ -189,22 +192,30 @@
     }
 
     .filters input {
-        width: 100%;
+       width: 0;
+    }
+
+    .filters input:not(.border-right, .range-filter-container input) {
+        min-width: 100%;
         flex: 1 0 auto;
         margin: -1px;
     }
 
     .search-btn {
-        border-radius: 12px;
+        border-radius: 14px;
         max-width: 97%;
         margin-left: 2.5%;
         margin-top: 22px;
     }
 
     .range-filter-container {
-        width: 50%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+    }
+
+    .range-filter-container input {
+        min-width: 50vw;
+        border-right: 2px solid rgba(239, 239, 239, 0.549);
     }
 
     .filters input:nth-child(-n+4) {
