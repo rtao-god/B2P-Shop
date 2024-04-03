@@ -28,52 +28,102 @@ const Header = () => {
 
             <nav className="main-nav container">
                 <ul>
-                    <li><a href="/all-brands">Все бренды</a></li>
-                    <li><a href="/farfetch">Farfetch</a></li>
-                    <li><a href="/asos">ASOS</a></li>
-                    <li><a href="/zara">Zara</a></li>
-                    <li><a href="/handm">H&M</a></li>
-                    <li><a href="/massimo-dutti">Massimo Dutti</a></li>
+                    <li className="all-brands"><a href="/all-brands">Все бренды</a></li>
+                    <li className="other-brands"><a href="/farfetch">Farfetch</a></li>
+                    <li className="other-brands"><a href="/asos">ASOS</a></li>
+                    <li className="other-brands"><a href="/zara">Zara</a></li>
+                    <li className="other-brands"><a href="/handm">H&M</a></li>
+                    <li className="other-brands"><a href="/massimo-dutti">Massimo Dutti</a></li>
                 </ul>
             </nav>
 
-            <div className="filters container">
-                <div className='filters-inputs'>
-                    <input
-                        type="text"
-                        name="size-type"
-                        placeholder={screenWidth < 1200 ? "Международный" : "Тип размера"}
-                        className="input-full"
-                    />
-                    <input
-                        type="text"
-                        name="size"
-                        placeholder="Размер"
-                    />
-                    <input
-                        type="text"
-                        name="size-type"
-                        placeholder="Категория"
-                    />
-                    <input
-                        type="text"
-                        name="size-type"
-                        placeholder="Наличие"
-                    />
-                    <div className={screenWidth < 1200 ? "input-container-flex" : "input-container"}>
-                        <div className={screenWidth < 1200 ? "input-flex" : "input-block"}>
+            {screenWidth > 1200 &&
+                <div className="filters container">
+                    <div className='filters-inputs'>
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="Тип размера"
+                        />
+                        <input
+                            type="text"
+                            name="size"
+                            placeholder="Размер"
+                        />
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="Категория"
+                        />
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="Наличие"
+                        />
+
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="От   ₽"
+                        />
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="До   ₽"
+                        />
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="От   шт."
+                        />
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="До   шт."
+                        />
+                    </div>
+                    <button className="search-btn">Найти</button>
+                </div>
+            }
+
+            {screenWidth < 1200 &&
+                <div className="filters container">
+                    <div className='filters-inputs'>
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="Международный"
+                        />
+                        <input
+                            type="text"
+                            name="size"
+                            placeholder="Размер"
+                        />
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="Категория"
+                        />
+                        <input
+                            type="text"
+                            name="size-type"
+                            placeholder="Наличие"
+                        />
+                        <div className='filter-flex'>
                             <input
                                 type="text"
                                 name="size-type"
-                                placeholder={screenWidth < 1200 ? "Цена от   ₽" : "От   ₽"}
+                                placeholder="Цена от   ₽"
+                                className="input-flex"
                             />
                             <input
                                 type="text"
                                 name="size-type"
-                                placeholder={screenWidth < 1200 ? "Цена до   ₽" : "До   ₽"}
+                                placeholder="Цена до   ₽"
+                                className="input-flex"
                             />
                         </div>
-                        <div className={screenWidth < 1200 ? "input-flex" : "input-block"}>
+                        <div className='filter-flex'>
                             <input
                                 type="text"
                                 name="size-type"
@@ -86,9 +136,9 @@ const Header = () => {
                             />
                         </div>
                     </div>
+                    <button className="search-btn">Найти</button>
                 </div>
-                <button className="search-btn">Найти</button>
-            </div>
+            }
         </header>
     );
 };
