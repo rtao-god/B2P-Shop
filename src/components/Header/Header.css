@@ -47,12 +47,14 @@
 .login-btn {
     background-color: #D1E4F6;
     color: #1976D2;
+    padding: 8px 24.5px;
 }
 
 .register-btn {
     background-color: #75ADE4;
     color: #FFFFFF;
     font-family: IBMPlexSans;
+    padding: 8px 31.5px;
 }
 
 .main-nav {
@@ -133,9 +135,18 @@
         width: auto;
         box-shadow: 8px 12px 32px 0px #1976D252;
         justify-content: center;
-        padding: 10px 20px;
+        padding: 16px;
         background-color: rgba(255, 255, 255, 0.9);
-        gap: 16px;
+        gap: 12px;
+        z-index: 1;
+    }
+
+    .login-btn {
+        padding: 8px 45.5px;
+    }
+
+    .register-btn {
+        padding: 8px 20.5px;
     }
 
     .logo-container {
