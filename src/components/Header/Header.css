@@ -150,6 +150,14 @@
         z-index: 1;
     }
 
+    .btn-trans {
+        padding: 8px 45.5px;
+    }
+
+    .btn-blue {
+        padding: 8px 20.5px;
+    }
+
     .logo-container {
         display: none;
     }
@@ -220,13 +228,6 @@
         border-bottom: 2px solid rgba(239, 239, 239, 0.549);
         border-top: 2px solid rgba(239, 239, 239, 0.549);
     }
-}
-
-@media (max-width: 553px) {
-    /*  .search-btn {
-        max-width: 95%;
-        margin-left: 5%;
-    } */
 }
 
 @media (max-width: 320px) {
