@@ -125,12 +125,11 @@
     position: relative;
     left: -11px;
     margin-right: -11px;
-    cursor: pointer;
     color: white;
+    border-radius: 0;
     padding: 10px 36px;
     padding-left: 46px;
     background-color: #1976D2;
-    border: none;
 }
 
 @media (max-width: 1175px) {
@@ -149,14 +148,6 @@
         background-color: rgba(255, 255, 255, 0.9);
         gap: 12px;
         z-index: 1;
-    }
-
-    .login-btn {
-        padding: 8px 45.5px;
-    }
-
-    .register-btn {
-        padding: 8px 20.5px;
     }
 
     .logo-container {
@@ -189,7 +180,6 @@
     .filters {
         border: 0px solid #1976D2;
         flex-direction: column;
-        padding-left: 0;
     }
 
     .filters-inputs {
@@ -209,13 +199,10 @@
     }
 
     .search-btn {
-        border-radius: 14px;
-        max-width: 97%;
-        margin-left: 2.5%;
-        margin-top: 22px;
-        padding-top: 12px;
-        padding-bottom: 12px;
-        line-height: 20px;
+        left: 0;
+        margin: 20px 16px;
+        padding: 12px 121px;
+        border-radius: 12px;
     }
 
     .range-filter-container {
@@ -226,6 +213,7 @@
     .range-filter-container input {
         min-width: 50vw;
         border-right: 2px solid rgba(239, 239, 239, 0.549);
+        margin-bottom: -1px;
     }
 
     .filters input:nth-child(-n+4) {
@@ -235,14 +223,14 @@
 }
 
 @media (max-width: 553px) {
-    .search-btn {
-        border-radius: 12px;
+    /*  .search-btn {
         max-width: 95%;
         margin-left: 5%;
-    }
+    } */
 }
 
 @media (max-width: 320px) {
+
     .filters input,
     .search-btn {
         padding: 10px;

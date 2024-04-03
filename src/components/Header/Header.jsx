@@ -81,7 +81,7 @@ const Header = () => {
                             placeholder="До   шт."
                         />
                     </div>
-                    <button className="search-btn">Найти</button>
+                    <button className="btn search-btn">Найти</button>
                 </div>
             }
 
@@ -133,7 +133,7 @@ const Header = () => {
                             />
                         </div>
                     </div>
-                    <button className="search-btn">Найти</button>
+                    <button className="btn search-btn">Найти</button>
                 </div>
             }
         </header>
