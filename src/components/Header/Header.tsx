@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Header.css';
 
 const Header = () => {
@@ -42,24 +42,24 @@ const Header = () => {
             {screenWidth > 1200 &&
                 <div className="filters container">
                     <div className='filters-inputs'>
-                        <input type="text" name="size-type" placeholder="Тип размера" />
-                        <input type="text" name="size" placeholder="Размер" />
-                        <input type="text" name="category" placeholder="Категория" />
-                        <input type="text" name="availability" placeholder="Наличие" />
+                        <input type="number" name="size-type" placeholder="Тип размера" />
+                        <input type="number" name="size" placeholder="Размер" />
+                        <input type="number" name="category" placeholder="Категория" />
+                        <input type="number" name="availability" placeholder="Наличие" />
                         <div className="input-wrapper">
-                            <input type="text" name="price-from" placeholder="От" />
+                            <input type="number" name="price-from" placeholder="От" />
                             <span className="currency-symbol">₽</span>
                         </div>
                         <div className="input-wrapper">
-                            <input type="text" name="price-to" placeholder="До" />
+                            <input type="number" name="price-to" placeholder="До" />
                             <span className="currency-symbol">₽</span>
                         </div>
                         <div className="input-wrapper penultimate-input">
-                            <input type="text" name="price-to" placeholder="От" />
+                            <input type="number" name="price-to" placeholder="От" />
                             <span className="currency-symbol">шт.</span>
                         </div>
                         <div className="input-wrapper last-input">
-                            <input style={{ borderRight: "none" }} type="text" name="price-to" placeholder="До" />
+                            <input style={{ borderRight: "none" }} type="number" name="price-to" placeholder="До" />
                             <span className="currency-symbol">шт.</span>
                         </div>
                     </div>
@@ -71,42 +71,42 @@ const Header = () => {
                 <div className="filters container">
                     <div className='filters-inputs'>
                         <input
-                            type="text"
+                            type="number"
                             name="size-type"
                             placeholder="Международный"
                         />
                         <input
-                            type="text"
+                            type="number"
                             name="size"
                             placeholder="Размер"
                         />
                         <input
-                            type="text"
+                            type="number"
                             name="size-type"
                             placeholder="Категория"
                         />
                         <input
-                            type="text"
+                            type="number"
                             name="size-type"
                             placeholder="Наличие"
                         />
                         <div className='range-filter-container input-wrapper'>
                             <div className="input-wrapper">
-                                <input type="text" name="price-from" placeholder="Цена от" />
+                                <input type="number" name="price-from" placeholder="Цена от" />
                                 <span className="currency-symbol">₽</span>
                             </div>
                             <div className="input-wrapper">
-                                <input type="text" name="price-to" placeholder="Цена до" />
+                                <input type="number" name="price-to" placeholder="Цена до" />
                                 <span className="currency-symbol">₽</span>
                             </div>
                         </div>
                         <div className='range-filter-container input-wrapper'>
                             <div className="input-wrapper">
-                                <input type="text" name="price-from" placeholder="От" />
+                                <input type="number" name="price-from" placeholder="От" />
                                 <span className="currency-symbol">шт.</span>
                             </div>
                             <div className="input-wrapper">
-                                <input type="text" name="price-to" placeholder="До" />
+                                <input type="number" name="price-to" placeholder="До" />
                                 <span className="currency-symbol">шт.</span>
                             </div>
                         </div>
