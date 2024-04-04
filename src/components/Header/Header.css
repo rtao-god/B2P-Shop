@@ -142,6 +142,10 @@
     padding-right: 15px;
 }
 
+.last-input span {
+    padding-right: 17px;
+}
+
 .last-input .currency-symbol {
     top: 48%;
 }
