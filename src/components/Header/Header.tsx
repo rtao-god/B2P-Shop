@@ -52,9 +52,9 @@ const Header = () => {
                             <input type="text" name="price-to" placeholder="До" />
                             <span className="currency-symbol">₽</span>
                         </div>
-                        <div className="input-wrapper">
+                        <div className="input-wrapper penultimate-input">
                             <input type="text" name="price-to" placeholder="От" />
-                            <span className="currency-symbol">₽</span>
+                            <span className="currency-symbol">шт.</span>
                         </div>
                         <div className="input-wrapper last-input">
                             <input style={{ borderRight: "none" }} type="text" name="price-to" placeholder="До" />

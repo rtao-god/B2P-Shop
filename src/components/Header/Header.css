@@ -130,6 +130,8 @@
     top: 50%;
     transform: translateY(-50%);
     padding-right: 8px;
+    font-family: 'IBMPlexSans';
+    color: #ABABAD;
 }
 
 .last-input {
@@ -138,6 +140,18 @@
     background-color: #ffffff;
     z-index: 1;
     padding-right: 15px;
+}
+
+.last-input .currency-symbol {
+    top: 48%;
+}
+
+.penultimate-input input {
+    padding-right: 44px;
+}
+
+.penultimate-input .currency-symbol {
+    top: 47%;
 }
 
 .search-btn {
@@ -218,7 +232,8 @@
     .filters input {
         width: 0;
         padding-right: 56px;
-    }  
+        border-right: none;
+    }
 
     .filters input:not(.border-right, .range-filter-container input) {
         min-width: 101%;
@@ -231,7 +246,7 @@
         right: 5px;
         top: 50%;
         transform: translateY(-50%);
-        padding-right: 16px;
+        padding-right: 24px;
     }
 
     .search-btn {
