@@ -1,3 +1,4 @@
+import AdTitle from "@components/layout/AdTitle/AdTitle";
 import FilterBar from "@components/layout/FilterBar/FilterBar";
 import Header from "@components/layout/Header/Header";
 import Nav from "@components/layout/Nav/Nav";
@@ -8,6 +9,7 @@ export default function MainPage() {
       <Header />
       <Nav />
       <FilterBar />
+      <AdTitle />
     </div>
   )
 }

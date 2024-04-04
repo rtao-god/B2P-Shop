@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './Nav.sass'
 
-type NavProps = {}
-
-const Nav: React.FC<NavProps> = (props) => {
-    return (
-        <nav className="main-nav container">
-            <ul>
-                <li className="all-brands"><a href="/all-brands">Все бренды</a></li>
-                <li className="other-brands"><a href="/farfetch">Farfetch</a></li>
-                <li className="other-brands"><a href="/asos">ASOS</a></li>
-                <li className="other-brands"><a href="/zara">Zara</a></li>
-                <li className="other-brands"><a href="/handm">H&M</a></li>
-                <li className="other-brands"><a href="/massimo-dutti">Massimo Dutti</a></li>
-            </ul>
-        </nav>
-    )
+interface Brand {
+    title: string;
 }
 
-export default Nav
+const Nav: React.FC<Brand> = () => {
+    const [brands, setBrands] = useState<Brand[]>([]);
+
+    useEffect(() => {
+        const fetchBrands = async () => {
+            try {
+                const response = await fetch('https://b2pshop.click/api/v2/directory/stores');
+                const data: Brand[] = await response.json();
+                setBrands(data);
+            } catch (error) {
+                console.error('Error fetching brands:', error);
+            }
+        };
+
+        fetchBrands();
+    }, []);
+
+    return (
+        <div className='main_nav container'>
+            <ul>
+                <li className="all_brands"><a href="/all_brands">Все бренды</a></li>
+                {brands.map((brand, index) => (
+                    <li className="other_brands" key={index}>
+                        <a href={"/" + brand.title.toLowerCase()}>{brand.title}</a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default Nav;

@@ -20,35 +20,35 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
         <div>
             {screenWidth > 1200 &&
                 <div className="filters container">
-                    <div className='filters-inputs'>
+                    <div className='filters_inputs'>
                         <input type="text" name="size-type" placeholder="Тип размера" />
                         <input type="text" name="size" placeholder="Размер" />
                         <input type="text" name="category" placeholder="Категория" />
                         <input type="text" name="availability" placeholder="Наличие" />
-                        <div className="input-wrapper">
+                        <div className="input_wrapper">
                             <input type="number" name="price-from" placeholder="От" />
-                            <span className="currency-symbol">₽</span>
+                            <span className="currency_symbol">₽</span>
                         </div>
-                        <div className="input-wrapper">
-                            <input type="number" name="price-to" placeholder="До" />
-                            <span className="currency-symbol">₽</span>
+                        <div className="input_wrapper">
+                            <input type="number" name="price_to" placeholder="До" />
+                            <span className="currency_symbol">₽</span>
                         </div>
-                        <div className="input-wrapper penultimate-input">
+                        <div className="input_wrapper penultimate_input">
                             <input type="number" name="price-to" placeholder="От" />
-                            <span className="currency-symbol">шт.</span>
+                            <span className="currency_symbol">шт.</span>
                         </div>
-                        <div className="input-wrapper last-input">
+                        <div className="input_wrapper last_input">
                             <input style={{ borderRight: "none" }} type="number" name="price-to" placeholder="До" />
-                            <span className="currency-symbol">шт.</span>
+                            <span className="currency_symbol">шт.</span>
                         </div>
                     </div>
-                    <button className="btn search-btn">Найти</button>
+                    <button className="btn search_btn">Найти</button>
                 </div>
             }
 
             {screenWidth < 1200 &&
                 <div className="filters container">
-                    <div className='filters-inputs'>
+                    <div className='filters_inputs'>
                         <input
                             type="text"
                             name="size-type"
@@ -69,28 +69,28 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
                             name="size-type"
                             placeholder="Наличие"
                         />
-                        <div className='range-filter-container input-wrapper'>
-                            <div className="input-wrapper">
+                        <div className='range_filter_container input_wrapper'>
+                            <div className="input_wrapper">
                                 <input type="number" name="price-from" placeholder="Цена от" />
-                                <span className="currency-symbol">₽</span>
+                                <span className="currency_symbol">₽</span>
                             </div>
-                            <div className="input-wrapper">
+                            <div className="input_wrapper">
                                 <input type="number" name="price-to" placeholder="Цена до" />
-                                <span className="currency-symbol">₽</span>
+                                <span className="currency_symbol">₽</span>
                             </div>
                         </div>
-                        <div className='range-filter-container input-wrapper'>
-                            <div className="input-wrapper">
+                        <div className='range_filter_container input_wrapper'>
+                            <div className="input_wrapper">
                                 <input type="number" name="price-from" placeholder="От" />
-                                <span className="currency-symbol">шт.</span>
+                                <span className="currency_symbol">шт.</span>
                             </div>
-                            <div className="input-wrapper">
+                            <div className="input_wrapper">
                                 <input type="number" name="price-to" placeholder="До" />
-                                <span className="currency-symbol">шт.</span>
+                                <span className="currency_symbol">шт.</span>
                             </div>
                         </div>
                     </div>
-                    <button className="btn search-btn">Найти</button>
+                    <button className="btn search_btn">Найти</button>
                 </div>
             }
         </div>
