@@ -86,7 +86,7 @@
 
 .filters {
     display: flex;
-    border: 2px solid #1976D2;
+    border: 3px solid #1976D2;
     border-radius: 8px;
     padding-left: 3px;
 }
@@ -106,19 +106,38 @@
     padding: 19px 16px;
 }
 
-.filters input:nth-child(-n+7) {
+.filters input:nth-child(-n+6) {
     border-right: 2px solid rgba(239, 239, 239, 0.549);
-}
-
-.filters input:nth-child(8) {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    background-color: #ffffff;
-    z-index: 1;
 }
 
 .filters input:focus {
     outline: none;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.input-wrapper input {
+    padding-right: 35px;
+}
+
+.currency-symbol {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 8px;
+}
+
+.last-input {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #ffffff;
+    z-index: 1;
+    padding-right: 15px;
 }
 
 .search-btn {
@@ -198,12 +217,21 @@
 
     .filters input {
         width: 0;
-    }
+        padding-right: 56px;
+    }  
 
     .filters input:not(.border-right, .range-filter-container input) {
         min-width: 100%;
         flex: 1 0 auto;
         margin: -1px;
+    }
+
+    .currency-symbol {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-right: 16px;
     }
 
     .search-btn {
@@ -213,14 +241,12 @@
         border-radius: 12px;
     }
 
-    .range-filter-container {
-        display: flex;
-        justify-content: flex-start;
+    .range-filter-container .input-wrapper {
+        border-right: 2px solid rgba(239, 239, 239, 0.549);
     }
 
     .range-filter-container input {
         min-width: 50vw;
-        border-right: 2px solid rgba(239, 239, 239, 0.549);
         margin-bottom: -1px;
     }
 

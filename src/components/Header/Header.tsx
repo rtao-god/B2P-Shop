@@ -40,46 +40,26 @@ const Header = () => {
             {screenWidth > 1200 &&
                 <div className="filters container">
                     <div className='filters-inputs'>
-                        <input
-                            type="text"
-                            name="size-type"
-                            placeholder="Тип размера"
-                        />
-                        <input
-                            type="text"
-                            name="size"
-                            placeholder="Размер"
-                        />
-                        <input
-                            type="text"
-                            name="size-type"
-                            placeholder="Категория"
-                        />
-                        <input
-                            type="text"
-                            name="size-type"
-                            placeholder="Наличие"
-                        />
-                        <input
-                            type="text"
-                            name="size-type"
-                            placeholder="От   ₽"
-                        />
-                        <input
-                            type="text"
-                            name="size-type"
-                            placeholder="До   ₽"
-                        />
-                        <input
-                            type="text"
-                            name="size-type"
-                            placeholder="От   шт."
-                        />
-                        <input
-                            type="text"
-                            name="size-type"
-                            placeholder="До   шт."
-                        />
+                        <input type="text" name="size-type" placeholder="Тип размера" />
+                        <input type="text" name="size" placeholder="Размер" />
+                        <input type="text" name="category" placeholder="Категория" />
+                        <input type="text" name="availability" placeholder="Наличие" />
+                        <div className="input-wrapper">
+                            <input type="text" name="price-from" placeholder="От" />
+                            <span className="currency-symbol">₽</span>
+                        </div>
+                        <div className="input-wrapper">
+                            <input type="text" name="price-to" placeholder="До" />
+                            <span className="currency-symbol">₽</span>
+                        </div>
+                        <div className="input-wrapper">
+                            <input type="text" name="price-to" placeholder="От" />
+                            <span className="currency-symbol">₽</span>
+                        </div>
+                        <div className="input-wrapper last-input">
+                            <input style={{ borderRight: "none" }} type="text" name="price-to" placeholder="До" />
+                            <span className="currency-symbol">шт.</span>
+                        </div>
                     </div>
                     <button className="btn search-btn">Найти</button>
                 </div>
@@ -108,29 +88,25 @@ const Header = () => {
                             name="size-type"
                             placeholder="Наличие"
                         />
-                        <div className='range-filter-container'>
-                            <input
-                                type="text"
-                                name="size-type"
-                                placeholder="Цена от   ₽"
-                            />
-                            <input
-                                type="text"
-                                name="size-type"
-                                placeholder="Цена до   ₽"
-                            />
+                        <div className='range-filter-container input-wrapper'>
+                            <div className="input-wrapper">
+                                <input type="text" name="price-from" placeholder="Цена от" />
+                                <span className="currency-symbol">₽</span>
+                            </div>
+                            <div className="input-wrapper">
+                                <input type="text" name="price-to" placeholder="Цена до" />
+                                <span className="currency-symbol">₽</span>
+                            </div>
                         </div>
-                        <div className='range-filter-container'>
-                            <input
-                                type="text"
-                                name="size-type"
-                                placeholder="От   шт."
-                            />
-                            <input
-                                type="text"
-                                name="size-type"
-                                placeholder="До   шт."
-                            />
+                        <div className='range-filter-container input-wrapper'>
+                            <div className="input-wrapper">
+                                <input type="text" name="price-from" placeholder="От" />
+                                <span className="currency-symbol">шт.</span>
+                            </div>
+                            <div className="input-wrapper">
+                                <input type="text" name="price-to" placeholder="До" />
+                                <span className="currency-symbol">шт.</span>
+                            </div>
                         </div>
                     </div>
                     <button className="btn search-btn">Найти</button>
