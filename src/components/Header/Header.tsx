@@ -42,10 +42,10 @@ const Header = () => {
             {screenWidth > 1200 &&
                 <div className="filters container">
                     <div className='filters-inputs'>
-                        <input type="number" name="size-type" placeholder="Тип размера" />
-                        <input type="number" name="size" placeholder="Размер" />
-                        <input type="number" name="category" placeholder="Категория" />
-                        <input type="number" name="availability" placeholder="Наличие" />
+                        <input type="text" name="size-type" placeholder="Тип размера" />
+                        <input type="text" name="size" placeholder="Размер" />
+                        <input type="text" name="category" placeholder="Категория" />
+                        <input type="text" name="availability" placeholder="Наличие" />
                         <div className="input-wrapper">
                             <input type="number" name="price-from" placeholder="От" />
                             <span className="currency-symbol">₽</span>
@@ -71,22 +71,22 @@ const Header = () => {
                 <div className="filters container">
                     <div className='filters-inputs'>
                         <input
-                            type="number"
+                            type="text"
                             name="size-type"
                             placeholder="Международный"
                         />
                         <input
-                            type="number"
+                            type="text"
                             name="size"
                             placeholder="Размер"
                         />
                         <input
-                            type="number"
+                            type="text"
                             name="size-type"
                             placeholder="Категория"
                         />
                         <input
-                            type="number"
+                            type="text"
                             name="size-type"
                             placeholder="Наличие"
                         />
