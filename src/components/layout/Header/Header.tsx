@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Header.css';
+import './Header.sass';
 
 const Header = () => {
     const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);

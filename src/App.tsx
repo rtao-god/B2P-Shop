@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
+import MainPage from '@pages/MainPage';
+import './css/global/index.sass'
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Header />
+      <MainPage />
     </div>
   );
 }
