@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
 import MainPage from '@pages/MainPage';
+import './App.css';
 import './css/global/index.sass'
 
 const App: React.FC = () => {

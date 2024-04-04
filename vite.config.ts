@@ -1,9 +1,16 @@
-import reactRefresh from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
-import path from 'path';
+import reactRefresh from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import path from 'path'
 
 export default defineConfig({
   plugins: [reactRefresh()],
+  css: {
+    preprocessorOptions: {
+      sass: {
+        additionalData: `@import '@/css/include.sass'\n`,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
@@ -19,4 +26,4 @@ export default defineConfig({
       '@routes': path.resolve(__dirname, './src/routes'),
     },
   },
-});
+})

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNext",
     "module": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["DOM", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,6 +16,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
+      "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@hooks/*": ["src/hooks/*"],
@@ -25,9 +26,9 @@
       "@store/*": ["src/store/*"],
       "@context/*": ["src/context/*"],
       "@assets/*": ["src/assets/*"],
-      "@routes/*": ["src/routes/*"]
+      "@routes/*": ["src/routes/*"],
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "vite-env.d.ts", "**/*.ts", "**/*.tsx",],
   "exclude": ["node_modules", "dist", "build"]
 }
