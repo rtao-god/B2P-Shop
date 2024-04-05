@@ -1,0 +1,39 @@
+.installation_instructions
+    display: flex
+    align-items: center
+    margin-top: 68px
+    p
+        @include paragraph-text(14, 18.2)
+        color: #B1B1B1
+    .platforms
+        display: flex
+        margin: 12px 0 12px 0
+        & div
+            padding: 9px 6px
+            background-color: #F2F2F2
+            border-radius: 6px
+            margin-right: 11px
+            width: 36px
+            height: 36px
+        .apple
+            svg
+                position: relative
+                bottom: 4px
+                width: 24px
+    .roll_up
+        display: flex
+        align-items: center
+        margin-top: 32px
+        cursor: pointer
+
+        p
+            @include paragraph-text(14, 16)
+            color: #1976D2
+            user-select: none
+
+        .chevron
+            margin-left: 4px
+            transition: transform 0.3s ease
+
+        .rotate
+            transform: rotate(180deg)

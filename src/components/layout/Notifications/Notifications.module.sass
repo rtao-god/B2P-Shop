@@ -1,0 +1,27 @@
+.notification
+    box-shadow: 0px 4px 24px 0px #1976D229
+    margin: 16px 0 16px 0
+    padding: 16px
+    & .header
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        .title
+            background-color: #FFD05E
+            padding: 2px 4px
+            border-radius: 4px
+            @include paragraph-text(14px, 18.2px)
+
+        .close_btn
+            border: none
+            background: none
+            cursor: pointer
+
+    & .body
+        .subtitle
+            color: #1976D2
+            @include text-size-h4
+
+        .text
+            @include paragraph-text(16px, 22px)

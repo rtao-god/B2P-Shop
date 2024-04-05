@@ -1,0 +1,70 @@
+// .container
+//     margin: 0 auto
+//     max-width: 1200px
+
+// .main_nav
+//     margin-bottom: 24px
+
+//     & ul
+//         list-style-type: none
+//         display: flex
+//         gap: 24px
+//         padding-inline-start: 0
+
+//     & a
+//         color: #191C1F
+//         font-family: 'IBMPlexSans'
+//         text-decoration: none
+
+//     &_container_flex
+//         display: flex
+
+// @media (max-width: 1175px)
+//     .all_brands a
+//         margin-left: 18px
+//         color: #1976D2
+//         font-size: 14px
+//         padding-left: 16px
+//         background-color: #EDF4FC
+//         padding: 8px 16px 8px 16px
+
+//     .other_brands
+//         display: none
+
+
+
+// Defining global container styles
+.container
+  margin: 0 auto
+  max-width: 1200px
+
+// Main navigation styling
+.main_nav
+  margin-bottom: 24px
+  & ul
+    list-style-type: none
+    display: flex
+    gap: 24px
+    padding-inline-start: 0
+
+  & a
+    color: #191C1F
+    font-family: 'IBMPlexSans'
+    text-decoration: none
+
+// Flex container modifier for main navigation
+.main_nav_container_flex
+  display: flex
+
+// Media query for responsive adjustments
+@media (max-width: 1175px)
+  .all_brands a
+    margin-left: 18px
+    color: #1976D2
+    font-size: 14px
+    padding-left: 16px
+    background-color: #EDF4FC
+    padding: 8px 16px 8px 16px
+
+  .other_brands
+    display: none
