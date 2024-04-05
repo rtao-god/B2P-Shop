@@ -1,16 +1,16 @@
-import './Header.sass';
+import styles from './Header.module.sass';
 
 const Header = () => {
     return (
-        <header className="site_header">
-            <div className="top_bar">
-                <div className="container top_bar_content">
-                    <div className="logo_container">
+        <header className={styles.site_header}>
+            <div className={styles.top_bar}>
+                <div className={`${styles.container} ${styles.top_bar_content}`}>
+                    <div className={styles.logo_container}>
                         <img src="/icons/logo.svg" alt="Logo" />
                     </div>
-                    <div className="auth_buttons">
-                        <button className="btn btn_trans">Вход</button>
-                        <button className="btn btn_blue">Регистрация</button>
+                    <div className={styles.auth_buttons}>
+                        <button className={styles.btn_trans}>Вход</button>
+                        <button className={styles.btn_blue}>Регистрация</button>
                     </div>
                 </div>
             </div>

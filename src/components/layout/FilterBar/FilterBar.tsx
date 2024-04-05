@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import './FilterBar.sass'
+import React, { useEffect, useState } from 'react';
+import styles from './FilterBar.module.sass';
 
-type FilterBarProps = {}
+interface FilterBarProps {
+    
+}
 
 const FilterBar: React.FC<FilterBarProps> = (props) => {
     const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
@@ -17,38 +19,38 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
     }, []);
 
     return (
-        <div>
+        <div className={styles.container}>
             {screenWidth > 1200 &&
-                <div className="filters container">
-                    <div className='filters_inputs'>
+                <div className={styles.filter_container}>
+                    <div className={styles.filter_inputs}>
                         <input type="text" name="size-type" placeholder="Тип размера" />
                         <input type="text" name="size" placeholder="Размер" />
                         <input type="text" name="category" placeholder="Категория" />
                         <input type="text" name="availability" placeholder="Наличие" />
-                        <div className="input_wrapper">
-                            <input type="number" name="price-from" placeholder="От" />
-                            <span className="currency_symbol">₽</span>
+                        <div className={styles.input_wrapper}>
+                            <input type="number" name="price_from" placeholder="От" />
+                            <span className={styles.currency_symbol}>₽</span>
                         </div>
-                        <div className="input_wrapper">
+                        <div className={styles.input_wrapper}>
                             <input type="number" name="price_to" placeholder="До" />
-                            <span className="currency_symbol">₽</span>
+                            <span className={styles.currency_symbol}>₽</span>
                         </div>
-                        <div className="input_wrapper penultimate_input">
-                            <input type="number" name="price-to" placeholder="От" />
-                            <span className="currency_symbol">шт.</span>
+                        <div className={`${styles.input_wrapper} ${styles.penultimate_input}`}>
+                            <input type="number" name="price_from" placeholder="От" />
+                            <span className={styles.currency_symbol}>шт.</span>
                         </div>
-                        <div className="input_wrapper last_input">
-                            <input style={{ borderRight: "none" }} type="number" name="price-to" placeholder="До" />
-                            <span className="currency_symbol">шт.</span>
+                        <div className={`${styles.input_wrapper} ${styles.last_input}`}>
+                            <input style={{ borderRight: "none" }} type="number" name="price_to" placeholder="До" />
+                            <span className={styles.currency_symbol}>шт.</span>
                         </div>
                     </div>
-                    <button className="btn search_btn">Найти</button>
+                    <button className={styles.search_button}>Найти</button>
                 </div>
             }
 
-            {screenWidth < 1200 &&
-                <div className="filters container">
-                    <div className='filters_inputs'>
+            {screenWidth <= 1200 &&
+                <div className={styles.filter_container_mobile}>
+                    <div className={styles.filter_inputs}>
                         <input
                             type="text"
                             name="size-type"
@@ -61,40 +63,40 @@ const FilterBar: React.FC<FilterBarProps> = (props) => {
                         />
                         <input
                             type="text"
-                            name="size-type"
+                            name="category"
                             placeholder="Категория"
                         />
                         <input
                             type="text"
-                            name="size-type"
+                            name="availability"
                             placeholder="Наличие"
                         />
-                        <div className='range_filter_container input_wrapper'>
-                            <div className="input_wrapper">
-                                <input type="number" name="price-from" placeholder="Цена от" />
-                                <span className="currency_symbol">₽</span>
+                        <div className={styles.range_filter_container}>
+                            <div className={styles.input_wrapper}>
+                                <input type="number" name="price_from" placeholder="Цена от" />
+                                <span className={styles.currency_symbol}>₽</span>
                             </div>
-                            <div className="input_wrapper">
-                                <input type="number" name="price-to" placeholder="Цена до" />
-                                <span className="currency_symbol">₽</span>
+                            <div className={styles.input_wrapper}>
+                                <input type="number" name="price_to" placeholder="Цена до" />
+                                <span className={styles.currency_symbol}>₽</span>
                             </div>
                         </div>
-                        <div className='range_filter_container input_wrapper'>
-                            <div className="input_wrapper">
-                                <input type="number" name="price-from" placeholder="От" />
-                                <span className="currency_symbol">шт.</span>
+                        <div className={styles.range_filter_container}>
+                            <div className={styles.input_wrapper}>
+                                <input type="number" name="quantity_from" placeholder="От" />
+                                <span className={styles.currency_symbol}>шт.</span>
                             </div>
-                            <div className="input_wrapper">
-                                <input type="number" name="price-to" placeholder="До" />
-                                <span className="currency_symbol">шт.</span>
+                            <div className={styles.input_wrapper}>
+                                <input type="number" name="quantity_to" placeholder="До" />
+                                <span className={styles.currency_symbol}>шт.</span>
                             </div>
                         </div>
                     </div>
-                    <button className="btn search_btn">Найти</button>
+                    <button className={styles.search_button}>Найти</button>
                 </div>
             }
         </div>
-    )
+    );
 }
 
-export default FilterBar
+export default FilterBar;

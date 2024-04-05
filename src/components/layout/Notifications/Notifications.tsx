@@ -1,5 +1,6 @@
 /* import React from 'react';
-import useConfig from '@hooks/useConfig'; 
+import useConfig from '@hooks/useConfig';
+import styles from './Notifications.module.sass';
 
 const Notifications: React.FC = () => {
     const { config, isLoading, error } = useConfig('/config');
@@ -10,9 +11,9 @@ const Notifications: React.FC = () => {
     return (
         <div>
             {config?.notifications.map((notification, index) => (
-                <div key={index}>
-                    <h4>{notification.title} Технические работы </h4>
-                    <p>{notification.message} Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi officia consequuntur, architecto ut doloribus magni blanditiis libero deleniti reprehenderit nostrum ex a fugit esse, dolores ab modi ullam atque. Iure.</p>
+                <div key={index} className={styles.notification}>
+                    <h4 className={styles.subtitle}>{notification.title} Технические работы </h4>
+                    <p className={styles.text}>{notification.message} Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi officia consequuntur, architecto ut doloribus magni blanditiis libero deleniti reprehenderit nostrum ex a fugit esse, dolores ab modi ullam atque. Iure.</p>
                 </div>
             ))}
         </div>
@@ -21,24 +22,34 @@ const Notifications: React.FC = () => {
 
 export default Notifications; */
 
+import React, { useState } from 'react';
+import styles from './Notifications.module.sass';
 import Cross from '@components/common/icons/Cross';
-import './Notifications.sass'
 
 const Notifications: React.FC = () => {
+    const [isVisible, setIsVisible] = useState(true);
+
+    const handleClose = () => setIsVisible(false);
+
+    if (!isVisible) return null;
+
     return (
-        <div className="notification_container container">
-            <div className="notification_eader">
-                <p> Технические работы </p>
-                <button> <Cross /></button>
+        <div className={styles.notification}>
+            <div className={styles.header}>
+                <p className={styles.title}>Технические работы</p>
+                <button className={styles.close_btn} onClick={handleClose}>
+                    <Cross />
+                </button>
             </div>
 
-            <div>
-                <h4> Заголовок объявления </h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi officia consequuntur, architecto ut doloribus magni blanditiis libero deleniti reprehenderit nostrum ex a fugit esse, dolores ab modi ullam atque. Iure.</p>
+            <div className={styles.body}>
+                <h4 className={styles.subtitle}>Заголовок объявления</h4>
+                <p className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi officia consequuntur, architecto ut doloribus magni blanditiis libero deleniti reprehenderit nostrum ex a fugit esse, dolores ab modi ullam atque. Iure.</p>
             </div>
         </div>
     );
 }
 
 export default Notifications;
+
 
