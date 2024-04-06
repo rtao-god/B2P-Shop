@@ -7,6 +7,7 @@ import MainSlider from "@/components/layout/MainSlider/MainSlider";
 import Bayer from "@/components/layout/Bayer/Bayer";
 import Bestsellers from "@/components/layout/Bestsellers/Bestsellers";
 import InstallationInstructions from "@/components/layout/InstallationInstructions/InstallationInstructions";
+import Footer from "@/components/layout/Footer/Footer";
 
 export default function MainPage() {
   return (
@@ -23,6 +24,7 @@ export default function MainPage() {
         <Bestsellers />
         <InstallationInstructions />
       </div>
+      <Footer />
     </div>
   )
 }
