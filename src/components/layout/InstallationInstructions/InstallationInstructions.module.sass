@@ -2,28 +2,39 @@
     display: flex
     align-items: center
     margin-top: 68px
+
     p
         @include paragraph-text(14, 18.2)
         color: #B1B1B1
     .platforms
         display: flex
-        margin: 12px 0 12px 0
+        margin: 12px 0
         & div
+            border: 0
+            border-radius: 6px
             padding: 9px 6px
             background-color: #F2F2F2
-            border-radius: 6px
             margin-right: 11px
             width: 36px
             height: 36px
-        .apple
-            svg
-                position: relative
-                bottom: 4px
-                width: 24px
+
+        .apple svg
+            position: relative
+            bottom: 4px
+            width: 24px
+    .description
+        @include paragraph-text(16, 22)
+        color: #191C1F
+
+    .device_mockup
+        margin-left: 56px
+        margin: 0 144px 0 56px
+
     .roll_up
         display: flex
         align-items: center
         margin-top: 32px
+        margin: 32px 0 16px 0
         cursor: pointer
 
         p
@@ -37,3 +48,41 @@
 
         .rotate
             transform: rotate(180deg)
+
+.device_selection_btn
+    display: flex
+    gap: 8px
+    button
+        border: 0
+        border-radius: 8px
+        background-color: #ffffff
+        padding: 6px 42px
+        cursor: pointer
+
+    & .acitve
+        background-color: #EEF1F8
+
+.stepPair
+    display: flex
+    margin-bottom: 20px
+
+    .step
+        display: flex
+        justify-content: space-between
+        margin: 25px 0 32px 0
+        width: 50%
+
+        h4
+            @include text-size-h4
+            line-height: 20px
+            margin-bottom: 6px
+        p
+            width: 100%
+
+    .qrImage
+        border-radius: 13.47px
+        border: 14.12px solid #EEF1F8
+        margin: 12px 0
+
+    .stepImage
+        margin: 0 16px
