@@ -1,3 +1,4 @@
+import Logo from '@/components/common/icons/Logos/Logo';
 import styles from './Header.module.sass';
 
 const Header = () => {
@@ -6,7 +7,7 @@ const Header = () => {
             <div className={styles.top_bar}>
                 <div className={`${styles.container} ${styles.top_bar_content}`}>
                     <div className={styles.logo_container}>
-                        <img src="/icons/logo.svg" alt="Logo" />
+                        <Logo />
                     </div>
                     <div className={styles.auth_buttons}>
                         <button className={styles.btn_trans}>Вход</button>
