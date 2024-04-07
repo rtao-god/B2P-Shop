@@ -24,3 +24,26 @@ body, p, h4
 
 button
   font-family: 'IBMPlexSans', 'Heebo', system-ui, Avenir, Helvetica, Arial, sans-serif
+
+.slick-dots
+  bottom: -25px !important
+
+  li
+    width: 8px
+    height: 8px
+    margin-right: 12px !important
+
+    button
+      width: 8px
+      height: 8px
+      border-radius: 50% !important
+      background-color: #E3E3E5 !important
+
+      &:hover, &:focus
+        background-color: #0041e5 !important
+
+  .slick-active button
+    background-color: #1976D2 !important
+
+.slick-dots li button::before
+  display: none !important
