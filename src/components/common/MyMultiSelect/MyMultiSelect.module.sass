@@ -1,0 +1,46 @@
+.multiSelect
+    border: 0
+    box-shadow: none
+    max-width: 80px
+
+.dropdown_button
+    cursor: pointer
+    border-right: 2px solid rgba(239, 239, 239, 0.549)
+
+.dropdown
+    border-radius: 8px
+    padding: 16px 16px
+    width: 25%
+    background-color: white
+    position: absolute
+    margin-top: 13px
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2)
+    z-index: 100
+    &::-webkit-scrollbar
+        width: 4px
+
+    &::-webkit-scrollbar-track
+        background: #ffffff
+        border-radius: 50px
+
+    &::-webkit-scrollbar-thumb
+        background: #D1E4F6
+        border-radius: 50px
+
+        scrollbar-width: thin
+        scrollbar-color: #D1E4F6 #ffffff
+
+    &_item
+        margin-top: 6px
+        padding: 10px 20px
+        background-color: white
+        cursor: pointer
+        color: #B1B1B1
+
+    & .selected
+        background-color: #EDF4FC
+        color: #1976D2
+
+.error
+    color: red
+    padding: 10px
