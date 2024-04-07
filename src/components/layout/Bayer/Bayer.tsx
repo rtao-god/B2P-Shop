@@ -1,25 +1,55 @@
 import React from 'react'
 import useApi from '@/hooks/useApi'
+import styles from './Bayer.module.sass'
+import Message from '@/components/common/icons/Message'
+import Favourites from '@/components/common/icons/Favourites'
 
 interface Bayer {
+    id: string
+    comments: number
+    is_favorites: boolean
+    picture: null
+    shop_name: string
+}
 
+interface ApiResponse {
+    data: Bayer[];
+    meta: {
+        limit: number;
+        page: number;
+        total: number;
+    };
 }
 
 const Bayer: React.FC = (props) => {
-    // const cityId = "your_city_id_here";
-    // const categoriesId = "your_category_id_here";
+    const citiesId = "f433a2fb-b6cd-48ac-afc6-2ec1f6332419";
 
-    // const endpoint = `/shops?limit=12&city_id=${cityId}&categories_id=${categoriesId}`;
-    // const { data, isLoading, error } = useApi(endpoint);
-    const { data: city, isLoading, error } = useApi<Bayer[]>('/shops/');
+    const endpoint = `/shops?type_size_id=${citiesId}`;
+    const { data: apiResponse, isLoading, error } = useApi<ApiResponse>(endpoint);
 
-    // console.log(city)
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+    if (!apiResponse || !apiResponse.data) return <div>No data found.</div>;
 
     return (
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum omnis sit minima laborum, itaque harum esse, nulla incidunt ad a nostrum at corporis odio voluptates! Itaque ullam esse assumenda deleniti.
+            <h4> Байеры </h4>
+            <div className={styles.cities}>
+                {apiResponse.data.map(city => (
+                    <div key={city.id} className={styles.city}>
+                        {/* <img src={city.picture} alt="" /> */}
+                        <div className={styles.img}></div>
+                        <div className={styles.favorites}>
+                            <Favourites />
+                        </div>
+                        <p className={styles.shop_name}> {city.shop_name} </p>
+                        <p className={styles.comments}> <Message /> {city.comments} </p>
+                    </div>
+                ))}
+            </div>
         </div>
-    )
+    );
+
 }
 
 export default Bayer

@@ -1,0 +1,36 @@
+h4
+    @include text-size-h4
+
+.cities
+    display: flex
+    flex-wrap: wrap
+    gap: 16px
+    margin: 16px 0
+
+    .city
+        position: relative
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 12px 34px
+        box-shadow: 0px 4.8px 28.8px 0px #1976D229
+        border-radius: 12px
+
+        .favorites
+            position: absolute
+            right: 5%
+
+        .img
+            width: 80px
+            height: 80px
+            background-color: #EEF1F8
+            border-radius: 12px
+            margin-bottom: 16px
+
+        .shop_name
+            margin-bottom: 4px
+            @include text-size-body-3
+
+        .comments
+            @include text-size-body-4
+            @include paragraph-text(14, 24)
