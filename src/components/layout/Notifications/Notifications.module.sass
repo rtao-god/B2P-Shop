@@ -2,6 +2,7 @@
     box-shadow: 0px 4px 24px 0px #1976D229
     margin: 16px 0 16px 0
     padding: 16px
+    border-radius: 8px
 
     & .header
         display: flex
@@ -12,7 +13,7 @@
             background-color: #FFD05E
             padding: 2px 4px
             border-radius: 4px
-            @include paragraph-text(14px, 18.2px)
+            @include text-size-body-4
 
         .close_btn
             border: none
@@ -22,8 +23,8 @@
     & .body
         .subtitle
             color: #1976D2
-            @include text-size-h4
             margin: 10px 0
+            @include text-size-body-2
 
         .text
             @include paragraph-text(16, 22)

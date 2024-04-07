@@ -36,14 +36,14 @@ const Notifications: React.FC = () => {
     return (
         <div className={styles.notification}>
             <div className={styles.header}>
-                <p className={styles.title}>Технические работы</p>
+                <h4 className={styles.title}>Технические работы</h4>
                 <button className={styles.close_btn} onClick={handleClose}>
                     <Cross />
                 </button>
             </div>
 
             <div className={styles.body}>
-                <h4 className={styles.subtitle}>Заголовок объявления</h4>
+                <h3 className={styles.subtitle}>Заголовок объявления</h3>
                 <p className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi officia consequuntur, architecto ut doloribus magni blanditiis libero deleniti reprehenderit nostrum ex a fugit esse, dolores ab modi ullam atque. Iure.</p>
             </div>
         </div>
