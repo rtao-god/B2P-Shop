@@ -13,7 +13,7 @@ const Footer: React.FC = (props) => {
     if (error) return <div>Error fetching text: {error.message}</div>;
     if (!text) return <div>No text found.</div>;
 
-    console.log(text)
+    // console.log(text)
 
     return (
         <div className={styles.footer}>
