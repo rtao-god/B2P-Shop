@@ -17,9 +17,7 @@ export default function MainPage() {
         <Nav />
         <FilterBar />
         <Notifications />
-      </div>
-      <MainSlider />
-      <div className={styles.container}>
+        <MainSlider />
         <Bayer />
         <Bestsellers />
         <InstallationInstructions />
