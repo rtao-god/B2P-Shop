@@ -46,7 +46,6 @@ const availabilityOptions = [
     { value: 'underOrder', label: 'Под заказ' },
 ];
 
-
 const FilterBar: React.FC = () => {
     const [selectedSizeType, setSelectedSizeType] = useState<string[]>([]);
     const [selectedSize, setSelectedSize] = useState<string[]>([]);

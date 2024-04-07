@@ -24,51 +24,81 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
   maxSelections = 5,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [justClosed, setJustClosed] = useState(false);
   const [filterText, setFilterText] = useState('');
   const [filteredOptions, setFilteredOptions] = useState<OptionType[]>(options);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        setJustClosed(true);
+        setErrorMessage(null); 
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
+  }, []);
 
   useEffect(() => {
-    const lowerCaseFilter = filterText.toLowerCase();
-    const filtered = options.filter(option => 
-      option.label.toString().toLowerCase().includes(lowerCaseFilter)
-    );
-    setFilteredOptions(filtered);
-  }, [filterText, options]);
-
-  const toggleDropdown = () => setIsOpen(!isOpen);
+    if (!isOpen && justClosed) {
+      const selectedOptions = options.filter(option => selectedValues.includes(option.value));
+      const nonSelectedOptions = options.filter(option => !selectedValues.includes(option.value));
+      setFilteredOptions([...selectedOptions, ...nonSelectedOptions]);
+      setJustClosed(false);
+    } else if (isOpen && justClosed) {
+      setJustClosed(false);
+    }
+  }, [isOpen, justClosed, options, selectedValues]);
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+    if (!isOpen) setErrorMessage(null);
+  };
 
   const handleOptionClick = (value: string) => {
-    const isCurrentlySelected = selectedValues.includes(value);
-    let updatedSelectedValues = [];
-
-    if (isCurrentlySelected) {
-      updatedSelectedValues = selectedValues.filter(v => v !== value);
+    if (enforceSelectionLimit && selectedValues.length >= maxSelections && !selectedValues.includes(value)) {
+      setErrorMessage(`Можно добавить не более ${maxSelections} размеров.`);
+      return;
     } else {
-      if (enforceSelectionLimit && selectedValues.length >= maxSelections) {
-        alert(`You can only select up to ${maxSelections} options.`);
-        return;
-      }
-      updatedSelectedValues = [...selectedValues, value];
+      setErrorMessage(null);
     }
+
+    const isCurrentlySelected = selectedValues.includes(value);
+    let updatedSelectedValues = isCurrentlySelected
+      ? selectedValues.filter(v => v !== value)
+      : [...selectedValues, value];
 
     onChange(updatedSelectedValues);
   };
 
   const selectedOptionsDisplay = selectedValues
-    .map(value => options.find(option => option.value === value)?.label)
+    .map(value => {
+      const foundOption = options.find(option => option.value === value);
+      if (!foundOption) return null;
+
+      if (typeof foundOption.label === 'string') {
+        return foundOption.label;
+      }
+
+      return foundOption.label.props.children[1];
+    })
     .filter(Boolean)
     .join(', ') || placeholder;
+
+  const prepareOptionsForRender = () => {
+    return filteredOptions.map((option) => (
+      <div
+        key={option.value}
+        onClick={() => handleOptionClick(option.value)}
+        className={`${styles.dropdown_item} ${selectedValues.includes(option.value) ? styles.selected : ''}`}
+        style={{ backgroundColor: selectedValues.includes(option.value) ? '#EDF4FC' : 'initial' }}
+      >
+        {option.label}
+      </div>
+    ));
+  };
 
   return (
     <div className={styles.multiSelect} ref={wrapperRef}>
@@ -79,20 +109,13 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
         <div className={styles.dropdown}>
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Поиск..."
             value={filterText}
             onChange={e => setFilterText(e.target.value)}
             className={styles.searchInput}
           />
-          {filteredOptions.map((option) => (
-            <div
-              key={option.value}
-              onClick={() => handleOptionClick(option.value)}
-              className={`${styles.dropdown_item} ${selectedValues.includes(option.value) ? styles.selected : ''}`}
-            >
-              {option.label}
-            </div>
-          ))}
+          {errorMessage && <div className={styles.error_message}>{errorMessage}</div>}
+          {prepareOptionsForRender()}
         </div>
       )}
     </div>
