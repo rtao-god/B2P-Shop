@@ -4,18 +4,33 @@
 
     .footer_content
         margin: 0 auto
-        max-width: 1200px
         display: flex
         justify-content: space-between
 
         .container1
             display: flex
             gap: 32px
-
             p
                 color: #ABABAD
 
         .container2
             display: flex
             gap: 16px
-            color: #75ADE4
+            a
+                color: #75ADE4
+
+@media (min-width: 720px) and (max-width: 1000px)
+    .footer_content
+        max-width: 650px
+
+@media (min-width: 1000px) and (max-width: 1280px)
+    .footer_content
+        max-width: 950px
+
+@media (min-width: 1280px) and (max-width: 1920px)
+    .footer_content
+        max-width: 1184px
+
+@media (min-width: 1920px)
+    .footer_content
+        max-width: 1504px

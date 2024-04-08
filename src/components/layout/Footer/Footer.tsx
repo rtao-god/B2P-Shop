@@ -1,19 +1,27 @@
-import LogoGrey from '@/components/common/icons/Logos/LogoGrey'
-import styles from './Footer.module.sass'
+import React from 'react';
+import LogoGrey from '@/components/common/icons/Logos/LogoGrey';
+import styles from './Footer.module.sass';
 import useApi from '@/hooks/useApi';
 
-interface FooterProps {
-
+interface Rule {
+    id: string;
+    content: string;
 }
 
-const Footer: React.FC = (props) => {
-    const { data: text, isLoading, error } = useApi<FooterProps>('/text');
+interface About {
+    id: string;
+    content: string;
+}
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error fetching text: {error.message}</div>;
-    if (!text) return <div>No text found.</div>;
+const Footer: React.FC = () => {
+    const { data: rulesData, isLoading: isLoadingRules, error: errorRules } = useApi<Rule>('/text/rules');
+    const { data: aboutData, isLoading: isLoadingAbout, error: errorAbout } = useApi<About>('/text/about');
 
-    // console.log(text)
+    if (isLoadingRules || isLoadingAbout) return <div>Загрузка...</div>;
+    if (errorRules || errorAbout) return <div>Ошибка при получении данных</div>;
+    if (!rulesData || !aboutData) return <div>Данные не найдены.</div>;
+
+    console.log(rulesData, aboutData)
 
     return (
         <div className={styles.footer}>
@@ -24,12 +32,12 @@ const Footer: React.FC = (props) => {
                 </div>
 
                 <div className={styles.container2}>
-                    <a href="/aboutService"> О сервисе </a>
-                    <a href="/rules"> Правила </a>
+                    <a target="_blank" href="/aboutService"><div dangerouslySetInnerHTML={{ __html: aboutData.content }} /> О сервисе </a>
+                    <a target="_blank" href="/rules"><div dangerouslySetInnerHTML={{ __html: rulesData.content }} />Правила</a>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Footer
+export default Footer;
