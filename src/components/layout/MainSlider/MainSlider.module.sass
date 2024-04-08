@@ -1,4 +1,4 @@
-.mainSlider
+.main_slider
     margin: 16px 0 52px 0
     box-shadow: 0px 4px 24px 0px #1976D23D
 
@@ -8,8 +8,11 @@
     padding-right: 16px
     box-shadow: 0px 4px 24px 0px #1976D23D
     cursor: pointer
+    border-radius: 8px
+    background-color: rgba(0, 0, 0, 0.0)
+  
 
-.slickArrow
+.slick_arrow
     position: absolute
     top: 50%
     width: 32px !important
@@ -23,9 +26,9 @@
     cursor: pointer
     transform: translate(0, -50%)
     font-size: 0 !important
-    z-index: 100
+    z-index: 1
 
-.slickPrev
+.slick_prev
     left: -1% !important
     svg
         transform: rotate(90deg)
@@ -34,7 +37,7 @@
         position: relative
         left: -1px
 
-.slickNext
+.slick_next
     right: -1% !important
     svg
         transform: rotate(-90deg)
@@ -43,6 +46,5 @@
         position: relative
         left: 1px
 
-.slickArrow::before
+.slick_arrow::before
     display: none !important
-

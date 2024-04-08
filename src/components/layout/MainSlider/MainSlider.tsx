@@ -19,7 +19,7 @@ interface CustomArrowProps {
 }
 
 const CustomArrow: React.FC<CustomArrowProps> = ({ className, style, onClick, direction }) => {
-    const arrowClass = `${styles.slickArrow} ${direction === 'left' ? styles.slickPrev : styles.slickNext}`;
+    const arrowClass = `${styles.slick_arrow} ${direction === 'left' ? styles.slick_prev : styles.slick_next}`;
 
     return (
         <div className={`${className || ''} ${arrowClass}`} style={style} onClick={onClick}>
@@ -47,7 +47,7 @@ const MainSlider: React.FC = () => {
     };
 
     return (
-        <div className={`${styles.mainSlider} ${styles.slickDotsScoped}`}>
+        <div className={styles.main_slider}>
             <Slider {...settings}>
                 {slides.map((slide) => (
                     <div key={slide.id} style={{ width: '100%', position: 'relative' }}>
