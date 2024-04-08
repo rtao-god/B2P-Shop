@@ -1,0 +1,58 @@
+.filter
+    display: flex
+    flex-direction: column
+    border-radius: 8px
+    padding-left: 16px
+
+    input
+        color: #ABABAD
+        border: 0
+        padding: 19px 16px
+        border-right: 2px solid rgba(239, 239, 239, 0.549)
+        position: relative
+        // left: -33%
+
+    input:focus
+        outline: none
+
+.range_filter_container
+    display: flex
+    justify-content: space-between
+
+.input_wrapper
+    max-width: 150px
+
+    input
+        @include paragraph-text(16, 24)
+        color: #191C1F
+        border: 0
+
+    .currency_symbol
+        position: absolute
+        right: 5px
+        top: 50%
+        transform: translateY(-50%)
+        padding-right: 8px
+        @include paragraph-text(14, 20)
+        color: #ABABAD
+
+.search_button
+    color: white
+    border-radius: 12px
+    padding: 10px 36px
+    background-color: #1976D2
+    cursor: pointer
+    border: 0
+
+    &:hover
+        opacity: 0.8
+
+.category_icon_wrapper
+    position: relative
+    display: flex !important
+    align-items: center !important
+    margin-right: 100px !important
+    top: 100%
+
+.icon
+    margin-right: 100px

@@ -1,12 +1,14 @@
-import React from 'react';
-import MainPage from '@pages/MainPage';
-import './App.css';
+import styles from './App.module.sass';
 import './css/global/index.sass'
+import Desktop from './desktop/Desktop';
+import Mobile from './mobile/Mobile';
 
 const App: React.FC = () => {
+  const isMobile = window.innerWidth < 720;
+
   return (
-    <div className="App">
-      <MainPage />
+    <div className={styles.App}>
+      {isMobile ? <Mobile /> : <Desktop />}
     </div>
   );
 }

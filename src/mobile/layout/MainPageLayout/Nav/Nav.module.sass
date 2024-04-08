@@ -1,0 +1,42 @@
+.container
+  margin: 0 auto
+  max-width: 1200px
+
+.main_nav
+  margin-bottom: 24px
+  display: flex
+  gap: 24px
+
+.brand_button, .all_brands
+  color: #191C1F
+  background-color: white
+  border: 0
+  cursor: pointer
+  transition: color 0.3s ease
+  padding-bottom: 4px
+  border-bottom: 2px solid transparent
+  @include text-size-body-3
+
+  &:hover
+    color: #1976D2
+
+.brand_unavailable
+  color: #B1B1B1
+  cursor: not-allowed
+
+.brand_selected
+  color: #1976D2
+  border-bottom-color: #1976D2
+
+/* @media (max-width: 1175px)
+ .all_brands a
+ margin-left: 18px
+ color: #1976D2
+ font-size: 14px
+ padding-left: 16px
+ background-color: #EDF4FC
+ padding: 8px 16px 8px 16px
+
+ .other_brands
+ display: none
+ */

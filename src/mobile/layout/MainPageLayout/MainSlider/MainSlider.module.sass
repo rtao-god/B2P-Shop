@@ -1,0 +1,50 @@
+.main_slider
+    margin: 16px 0 52px 0
+    box-shadow: 0px 4px 24px 0px #1976D23D
+
+.slide
+    position: relative
+    left: -50%
+    padding-right: 16px
+    box-shadow: 0px 4px 24px 0px #1976D23D
+    cursor: pointer
+    border-radius: 8px
+    background-color: rgba(0, 0, 0, 0.0)
+  
+
+.slick_arrow
+    position: absolute
+    top: 50%
+    width: 32px !important
+    height: 32px !important
+    background-color: white !important
+    border-radius: 50%
+    box-shadow: 0px 4px 24px 0px #1976D229
+    display: flex !important
+    align-items: center !important
+    justify-content: center !important
+    cursor: pointer
+    transform: translate(0, -50%)
+    font-size: 0 !important
+    z-index: 1
+
+.slick_prev
+    left: -1% !important
+    svg
+        transform: rotate(90deg)
+        width: 13px
+        height: 9px
+        position: relative
+        left: -1px
+
+.slick_next
+    right: -1% !important
+    svg
+        transform: rotate(-90deg)
+        width: 13px
+        height: 9px
+        position: relative
+        left: 1px
+
+.slick_arrow::before
+    display: none !important

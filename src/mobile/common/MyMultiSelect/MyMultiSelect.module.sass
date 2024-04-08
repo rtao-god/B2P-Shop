@@ -1,0 +1,111 @@
+.multiSelect
+    border: 0
+    box-shadow: none
+    margin-bottom: 32px
+    color: #ABABAD
+
+.dropdown
+    border-radius: 8px
+    padding: 16px 16px
+    width: 50%
+    background-color: white
+    position: absolute
+    margin-top: 13px
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2)
+    z-index: 100
+    &::-webkit-scrollbar
+        width: 4px
+
+    &::-webkit-scrollbar-track
+        background: #ffffff
+        border-radius: 50px
+
+    &::-webkit-scrollbar-thumb
+        background: #D1E4F6
+        border-radius: 50px
+        scrollbar-width: thin
+        scrollbar-color: #D1E4F6 #ffffff
+
+    &_item
+        margin-top: 6px
+        padding: 8px 16px
+        background-color: white
+        border-radius: 4px
+        cursor: pointer
+        position: relative
+
+    & .selected
+        display: flex
+        justify-content: space-between
+        align-items: center
+        background-color: #EDF4FC
+        color: #1976D2
+
+.error_message
+    color: #FF6635
+    @include paragraph-text(14, 20)
+
+.selected_option
+    padding: 2px 8px
+    background-color: #EDF4FC
+    margin-right: 8px
+    cursor: pointer
+    color: #4791DB
+    border-radius: 4px
+    @include text-size-body-3
+    position: relative
+
+    & .option_with_padding
+        padding-left: 30px
+
+.special_selected_option
+    padding-left: 36px
+    color: #1976D2
+    @include text-size-body-3
+    font-weight: 600
+    & svg
+        position: absolute
+        top: 9%
+        left: 10%
+        width: 17px
+
+.search_button
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    .search_input
+        border: 0
+        border-radius: 4px
+        background-color: #F9F9F9
+        color: #ABABAD
+        @include text-size-body-3
+        transition: all 0.3s ease
+        height: 40px
+    .search_input_active
+        color: #1976D2
+        background-color: #B1B1B13D
+
+    .search_input_icons
+        position: absolute
+        top: 11px
+        right: 8%
+
+        .cross_button
+            position: relative
+            right: -23%
+            cursor: pointer
+            border: 0
+
+.icon_deleting_selected_item
+    cursor: pointer
+    border: 0
+
+.option_with_padding
+    padding-left: 45px
+    @include text-size-body-3
+    font-weight: 600
+    & .flex svg
+        position: absolute
+        top: 19%
+        left: 20px

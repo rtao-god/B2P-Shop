@@ -9,20 +9,20 @@ import Bestsellers from "@/components/layout/Bestsellers/Bestsellers";
 import InstallationInstructions from "@/components/layout/InstallationInstructions/InstallationInstructions";
 import Footer from "@/components/layout/Footer/Footer";
 
-export default function MainPage() {
-  return (
-    <div>
-      <Header />
-      <div className={styles.container}>
-        <Nav />
-        <FilterBar />
-        <Notifications />
-        <MainSlider />
-        <Bayer />
-        <Bestsellers />
-        <InstallationInstructions />
-      </div>
-      <Footer />
-    </div>
-  )
+export default function MainPage({ }) {
+    return (
+        <>
+            <Header />
+            <div className={styles.container}>
+                <Nav />
+                <FilterBar />
+                <Notifications />
+                <MainSlider />
+                <Bayer />
+                <Bestsellers />
+                <InstallationInstructions />
+            </div>
+            <Footer />
+        </>
+    )
 }

@@ -1,0 +1,93 @@
+h4
+    @include text-size-h4
+
+.bestseller
+    display: flex
+    justify-content: center
+    flex-direction: column
+    gap: 12px
+    position: relative
+    max-width: 100%
+    margin: 16px 0 50px 0
+    box-shadow: 0px 4px 24px 0px rgba(25, 118, 210, 0.1607843137)
+    padding: 12px 0
+    border-radius: 12px
+    .product_overview
+        display: flex
+
+.img
+    width: 80px
+    height: auto
+    object-fit: cover
+    cursor: pointer
+
+.details
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+
+.row
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 8px
+
+    .store_svg
+        max-width: 62px
+        height: 8px
+
+    .rate
+        @include paragraph-text(14, 20)
+
+    .product_title
+        font-weight: 400
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        max-width: 56%
+        @include paragraph-text(14, 16)
+
+    .shop_title
+        color: #B1B1B1
+        font-weight: 400
+        @include paragraph-text(14, 20)
+
+    .price
+        @include paragraph-text(14, 20)
+        color: #191C1F
+        font-weight: 600
+        .quantity
+            color: #B1B1B1
+            @include paragraph-text(16, 20.8)
+            font-weight: 400
+
+.stars_left
+    display: flex
+    flex-wrap: nowrap
+
+    .stars
+        display: flex
+        max-width: 165px
+        flex-wrap: wrap
+        align-items: center
+        gap: 4px
+
+.stocks_wrapper
+    display: flex
+    justify-content: space-between
+    .more_sizes
+        @include paragraph-text(12, 15.6)
+        font-weight: 500
+        color: #B1B1B1
+        cursor: pointer
+
+.stocks
+    display: flex
+    gap: 4px
+    span
+        cursor: pointer
+        border-radius: 4px
+        padding: 4px 8px 4px 8px
+        color: #1976D2
+        background-color: #EEF1F8
+        @include paragraph-text(11, 12)
