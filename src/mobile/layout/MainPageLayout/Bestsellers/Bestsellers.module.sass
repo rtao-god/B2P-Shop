@@ -1,19 +1,24 @@
-h4
+.bestsellers_h4
     @include text-size-h4
 
-.bestseller
-    display: flex
-    justify-content: center
-    flex-direction: column
-    gap: 12px
-    position: relative
-    max-width: 100%
-    margin: 16px 0 50px 0
-    box-shadow: 0px 4px 24px 0px rgba(25, 118, 210, 0.1607843137)
-    padding: 12px 0
-    border-radius: 12px
-    .product_overview
+.bestsellers
+    margin: 12px auto 24px auto
+    .bestseller
         display: flex
+        justify-content: center
+        flex-direction: column
+        align-items: flex-start
+        gap: 10px
+        box-shadow: 0px 4px 24px 0px rgba(25, 118, 210, 0.1607843137)
+        border-radius: 12px
+        padding: 12px 0
+        margin-bottom: 4px
+
+        .product_overview
+            margin: 0 auto
+            display: flex
+            align-items: center
+            justify-content: flex-start
 
 .img
     width: 80px
@@ -28,29 +33,35 @@ h4
 
 .row
     display: flex
+    flex-wrap: wrap
     justify-content: space-between
     align-items: center
     margin-bottom: 8px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
 
     .store_svg
         max-width: 62px
         height: 8px
 
     .rate
-        @include paragraph-text(14, 20)
+        @include paragraph-text(12, 20)
 
     .product_title
+        // flex-grow: 1
         font-weight: 400
         white-space: nowrap
         overflow: hidden
         text-overflow: ellipsis
-        max-width: 56%
+        max-width: 36%
         @include paragraph-text(14, 16)
+        // max-width: calc(100% - 40px)
 
     .shop_title
         color: #B1B1B1
         font-weight: 400
-        @include paragraph-text(14, 20)
+        @include paragraph-text(12, 20)
 
     .price
         @include paragraph-text(14, 20)
@@ -58,19 +69,22 @@ h4
         font-weight: 600
         .quantity
             color: #B1B1B1
-            @include paragraph-text(16, 20.8)
+            @include paragraph-text(12, 20)
             font-weight: 400
 
 .stars_left
     display: flex
-    flex-wrap: nowrap
+    align-items: center
+    gap: 8px
 
     .stars
         display: flex
-        max-width: 165px
         flex-wrap: wrap
         align-items: center
-        gap: 4px
+        gap: 2px
+    svg
+        width: 12.63px
+        height: 12px
 
 .stocks_wrapper
     display: flex
@@ -84,6 +98,8 @@ h4
 .stocks
     display: flex
     gap: 4px
+    margin: 0 auto
+
     span
         cursor: pointer
         border-radius: 4px
@@ -91,3 +107,15 @@ h4
         color: #1976D2
         background-color: #EEF1F8
         @include paragraph-text(11, 12)
+
+@media (min-width: 320px) and (max-width: 420px)
+    .product_overview
+        max-width: 288px
+
+@media (min-width: 420px) and (max-width: 520px)
+    .product_overview
+        max-width: 360px
+
+@media (min-width: 520px) and (max-width: 720px)
+    .product_overview
+        max-width: 460px

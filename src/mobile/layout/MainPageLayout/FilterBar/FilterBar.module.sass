@@ -1,31 +1,24 @@
 .filter
     display: flex
     flex-direction: column
-    border-radius: 8px
-    padding-left: 16px
-
-    input
-        color: #ABABAD
-        border: 0
-        padding: 19px 16px
-        border-right: 2px solid rgba(239, 239, 239, 0.549)
-        position: relative
-        // left: -33%
+    // padding-left: 16px
 
     input:focus
         outline: none
 
 .range_filter_container
     display: flex
-    justify-content: space-between
 
 .input_wrapper
-    max-width: 150px
-
+    position: relative
     input
+        color: #1976D2
         @include paragraph-text(16, 24)
-        color: #191C1F
         border: 0
+        padding: 16px 0
+        border-right: 2px solid rgba(239, 239, 239, 0.549)
+        position: relative
+        max-width: 150px
 
     .currency_symbol
         position: absolute
@@ -39,7 +32,8 @@
 .search_button
     color: white
     border-radius: 12px
-    padding: 10px 36px
+    margin-top: 22px
+    padding: 14px 16px
     background-color: #1976D2
     cursor: pointer
     border: 0

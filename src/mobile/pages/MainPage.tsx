@@ -19,12 +19,12 @@ export default function MainPage({ }) {
                 <FilterBar />
                 <Notifications />
                 <Bayer />
-                <div className={styles.container}>
-                    <Bestsellers />
-                </div>
-                <InstallationInstructions />
             </div>
-            <Footer />
+            <Bestsellers />
+            <div className={styles.container}>
+                <InstallationInstructions />
+                <Footer />
+            </div>
         </>
     )
 }
