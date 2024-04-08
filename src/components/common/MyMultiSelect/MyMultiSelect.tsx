@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './MyMultiSelect.module.sass';
+import Magnifier from '../icons/dropdown/Magnifier';
+import Cross from '../icons/Cross';
 
 interface OptionType {
   value: string;
@@ -24,71 +26,56 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
   maxSelections = 5,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [justClosed, setJustClosed] = useState(false);
   const [filterText, setFilterText] = useState('');
-  const [filteredOptions, setFilteredOptions] = useState<OptionType[]>(options);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null); 
+  const [sortedAndFilteredOptions, setSortedAndFilteredOptions] = useState<OptionType[]>([]);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
         setIsOpen(false);
-        setJustClosed(true);
-        setErrorMessage(null); 
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    if (!isOpen && justClosed) {
-      const selectedOptions = options.filter(option => selectedValues.includes(option.value));
-      const nonSelectedOptions = options.filter(option => !selectedValues.includes(option.value));
-      setFilteredOptions([...selectedOptions, ...nonSelectedOptions]);
-      setJustClosed(false);
-    } else if (isOpen && justClosed) {
-      setJustClosed(false);
-    }
-  }, [isOpen, justClosed, options, selectedValues]);
   const toggleDropdown = () => {
+    if (!isOpen) {
+      const filtered = options.filter(option =>
+        option.label.toString().toLowerCase().includes(filterText.toLowerCase())
+      );
+
+      const sorted = filtered.sort((a, b) => {
+        const isSelectedA = selectedValues.includes(a.value) ? -1 : 1;
+        const isSelectedB = selectedValues.includes(b.value) ? -1 : 1;
+        return isSelectedA - isSelectedB;
+      });
+
+      setSortedAndFilteredOptions(sorted);
+    }
+
     setIsOpen(!isOpen);
-    if (!isOpen) setErrorMessage(null);
   };
 
   const handleOptionClick = (value: string) => {
     if (enforceSelectionLimit && selectedValues.length >= maxSelections && !selectedValues.includes(value)) {
-      setErrorMessage(`Можно добавить не более ${maxSelections} размеров.`);
+      setErrorMessage(`Вы можете выбрать не более ${maxSelections} размеров.`);
       return;
     } else {
       setErrorMessage(null);
     }
 
-    const isCurrentlySelected = selectedValues.includes(value);
-    let updatedSelectedValues = isCurrentlySelected
+    const updatedSelectedValues = selectedValues.includes(value)
       ? selectedValues.filter(v => v !== value)
       : [...selectedValues, value];
 
     onChange(updatedSelectedValues);
   };
 
-  const selectedOptionsDisplay = selectedValues
-    .map(value => {
-      const foundOption = options.find(option => option.value === value);
-      if (!foundOption) return null;
-
-      if (typeof foundOption.label === 'string') {
-        return foundOption.label;
-      }
-
-      return foundOption.label.props.children[1];
-    })
-    .filter(Boolean)
-    .join(', ') || placeholder;
-
   const prepareOptionsForRender = () => {
-    return filteredOptions.map((option) => (
+    return sortedAndFilteredOptions.map((option) => (
       <div
         key={option.value}
         onClick={() => handleOptionClick(option.value)}
@@ -103,17 +90,39 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
   return (
     <div className={styles.multiSelect} ref={wrapperRef}>
       <div className={styles.dropdown_button} onClick={toggleDropdown}>
-        {selectedOptionsDisplay}
+        {selectedValues.length > 0 ? selectedValues.map(value => (
+          <span key={value} className={styles.selected_option}>{options.find(option => option.value === value)?.label}</span>
+        )) : <span>{placeholder}</span>}
       </div>
       {isOpen && (
         <div className={styles.dropdown}>
-          <input
-            type="text"
-            placeholder="Поиск..."
-            value={filterText}
-            onChange={e => setFilterText(e.target.value)}
-            className={styles.searchInput}
-          />
+          <div className={styles.search_button}>
+            <input
+              type="text"
+              placeholder="Поиск..."
+              value={filterText}
+              onChange={(e) => {
+                setFilterText(e.target.value);
+                setErrorMessage(null); // Сброс сообщения об ошибке при изменении текста
+                const filtered = options.filter(option =>
+                  option.label.toString().toLowerCase().includes(e.target.value.toLowerCase())
+                );
+                const sorted = filtered.sort((a, b) => {
+                  const isSelectedA = selectedValues.includes(a.value) ? -1 : 1;
+                  const isSelectedB = selectedValues.includes(b.value) ? -1 : 1;
+                  return isSelectedA - isSelectedB;
+                });
+                setSortedAndFilteredOptions(sorted);
+              }}
+              className={`${styles.search_input} ${filterText ? styles.search_input_active : ''}`}
+            />
+            <div className={styles.search_input_icons}>
+              {filterText
+                ? <Cross />
+                : <Magnifier />
+              }
+            </div>
+          </div>
           {errorMessage && <div className={styles.error_message}>{errorMessage}</div>}
           {prepareOptionsForRender()}
         </div>

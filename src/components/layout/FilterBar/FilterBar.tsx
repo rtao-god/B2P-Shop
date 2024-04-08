@@ -53,59 +53,23 @@ const FilterBar: React.FC = () => {
     const [selectedAvailability, setSelectedAvailability] = useState<string[]>([]);
 
     const handleSingleSelectChange = (setter: React.Dispatch<React.SetStateAction<string[]>>) => (value: string[]) => {
-        value.length > 0
-            ? setter([value[value.length - 1]])
-            : setter([]);
+        setter(value.length > 0 ? [value[value.length - 1]] : []);
     };
 
     return (
         <div className={styles.filter}>
             <div className={styles.filter_inputs}>
-                <MyMultiSelect
-                    placeholder="Тип размера"
-                    options={sizeTypeOptions}
-                    selectedValues={selectedSizeType}
-                    onChange={handleSingleSelectChange(setSelectedSizeType)}
-                />
-                <MyMultiSelect
-                    placeholder="Размер"
-                    options={sizeOptions}
-                    selectedValues={selectedSize}
-                    onChange={setSelectedSize}
-                    enforceSelectionLimit={true} 
-                    maxSelections={5} 
-                />
-                <MyMultiSelect
-                    placeholder="Категория"
-                    options={categoryOptions}
-                    selectedValues={selectedCategory}
-                    onChange={setSelectedCategory}
-                />
-                <MyMultiSelect
-                    placeholder="Наличие"
-                    options={availabilityOptions}
-                    selectedValues={selectedAvailability}
-                    onChange={setSelectedAvailability}
-                />
-                <div className={styles.input_wrapper}>
-                    <MyNumberInput name="price_from" placeholder="От" />
-                    <span className={styles.currency_symbol}>₽</span>
-                </div>
-                <div className={styles.input_wrapper}>
-                    <MyNumberInput name="price_to" placeholder="До" />
-                    <span className={styles.currency_symbol}>₽</span>
-                </div>
-                <div className={`${styles.input_wrapper} ${styles.penultimate_input}`}>
-                    <input type="number" name="quantity" placeholder="От" />
-                    <span className={styles.currency_symbol}>шт.</span>
-                </div>
-                <div className={`${styles.input_wrapper} ${styles.last_input}`}>
-                    <input type="number" name="quantity" placeholder="До" />
-                    <span className={styles.currency_symbol}>шт.</span>
-                </div>
+                <MyMultiSelect placeholder="Тип размера" options={sizeTypeOptions} selectedValues={selectedSizeType} onChange={handleSingleSelectChange(setSelectedSizeType)} />
+                <MyMultiSelect placeholder="Размер" options={sizeOptions} selectedValues={selectedSize} onChange={setSelectedSize} enforceSelectionLimit={true} maxSelections={5} />
+                <MyMultiSelect placeholder="Категория" options={categoryOptions} selectedValues={selectedCategory} onChange={setSelectedCategory} />
+                <MyMultiSelect placeholder="Наличие" options={availabilityOptions} selectedValues={selectedAvailability} onChange={setSelectedAvailability} />
+                <div className={styles.input_wrapper}><MyNumberInput name="price_from" placeholder="От" /><span className={styles.currency_symbol}>₽</span></div>
+                <div className={styles.input_wrapper}><MyNumberInput name="price_to" placeholder="До" /><span className={styles.currency_symbol}>₽</span></div>
+                <div className={`${styles.input_wrapper} ${styles.penultimate_input}`}><input type="number" name="quantity" placeholder="От" /><span className={styles.currency_symbol}>шт.</span></div>
+                <div className={`${styles.input_wrapper} ${styles.last_input}`}><input type="number" name="quantity" placeholder="До" /><span className={styles.currency_symbol}>шт.</span></div>
             </div>
-            <button className={styles.search_button}> Найти </button>
-        </div >
+            <button className={styles.search_button}>Найти</button>
+        </div>
     );
 };
 export default FilterBar;
