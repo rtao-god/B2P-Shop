@@ -75,25 +75,59 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
   };
 
   const prepareOptionsForRender = () => {
-    return sortedAndFilteredOptions.map((option) => (
-      <div
-        key={option.value}
-        onClick={() => handleOptionClick(option.value)}
-        className={`${styles.dropdown_item} ${selectedValues.includes(option.value) ? styles.selected : ''}`}
-        style={{ backgroundColor: selectedValues.includes(option.value) ? '#EDF4FC' : 'initial' }}
-      >
-        {option.label}
-      </div>
-    ));
+    return sortedAndFilteredOptions
+      .filter(option => option.label.toString().toLowerCase().includes(filterText.toLowerCase()))
+      .map((option) => {
+        const isPaddingNeeded = option.value === 'womens' || option.value === 'mens';
+        const optionClasses = `${styles.dropdown_item} ${selectedValues.includes(option.value) ? styles.selected : ''} ${isPaddingNeeded ? styles.option_with_padding : ''}`;
+
+        return (
+          <div
+            key={option.value}
+            className={optionClasses}
+            onClick={() => handleOptionClick(option.value)}
+          >
+            <div className={styles.flex}>
+              {option.label}
+            </div>
+            {selectedValues.includes(option.value) && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  removeSelectedValue(option.value);
+                }}
+                className={styles.icon_deleting_selected_item}
+              >
+                <Cross color="#FF6635" />
+              </button>
+            )}
+          </div>
+        );
+      });
+  };
+
+  const removeSelectedValue = (valueToRemove: string) => {
+    const updatedSelectedValues = selectedValues.filter(value => value !== valueToRemove);
+    onChange(updatedSelectedValues);
+    prepareOptionsForRender()
   };
 
   return (
     <div className={styles.multiSelect} ref={wrapperRef}>
       <div className={styles.dropdown_button} onClick={toggleDropdown}>
-        {selectedValues.length > 0 ? selectedValues.map(value => (
-          <span key={value} className={styles.selected_option}>{options.find(option => option.value === value)?.label}</span>
-        )) : <span>{placeholder}</span>}
+        {selectedValues.length > 0 ? selectedValues.map(value => {
+          const selectedOption = options.find(option => option.value === value);
+          const isSpecialOption = selectedOption?.value === 'womens' || selectedOption?.value === 'mens';
+          const optionClassNames = isSpecialOption ? `${styles.selected_option} ${styles.special_selected_option}` : styles.selected_option;
+
+          return (
+            <span key={value} className={optionClassNames}>
+              {selectedOption?.label}
+            </span>
+          );
+        }) : <span>{placeholder}</span>}
       </div>
+
       {isOpen && (
         <div className={styles.dropdown}>
           <div className={styles.search_button}>
@@ -103,7 +137,7 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
               value={filterText}
               onChange={(e) => {
                 setFilterText(e.target.value);
-                setErrorMessage(null); // Сброс сообщения об ошибке при изменении текста
+                setErrorMessage(null);
                 const filtered = options.filter(option =>
                   option.label.toString().toLowerCase().includes(e.target.value.toLowerCase())
                 );
@@ -118,7 +152,9 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
             />
             <div className={styles.search_input_icons}>
               {filterText
-                ? <Cross />
+                ? <button onClick={() => setFilterText("")} className={styles.cross_button}>
+                  <Cross color="#B1B1B1" />
+                </button>
                 : <Magnifier />
               }
             </div>

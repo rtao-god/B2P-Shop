@@ -65,7 +65,7 @@ const Bestsellers: React.FC = () => {
         <div>
             <h4>Бестселлеры</h4>
             <div className={styles.bestsellers}>
-                {products.map((product) => (
+                {products.map(product => (
                     <div key={product.id} className={styles.bestseller}>
                         <div className={styles.product_overview}>
                             <img src={product.file?.path} alt={product.title} className={styles.img} />

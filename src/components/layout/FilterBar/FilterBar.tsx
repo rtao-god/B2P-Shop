@@ -3,8 +3,6 @@ import styles from './FilterBar.module.sass';
 import MyNumberInput from '@/components/common/MyNumberInput/MyNumberInput';
 import Mens from '@/components/common/icons/dropdown/Mens';
 import Womens from '@/components/common/icons/dropdown/Womens';
-// import InStock from '@/components/common/icons/dropdown/InStock'; 
-// import OnWay from '@/components/common/icons/dropdown/OnWay';
 import MyMultiSelect from '@/components/common/MyMultiSelect/MyMultiSelect';
 
 const sizeTypeOptions = [
@@ -28,11 +26,11 @@ const sizeOptions = [
 
 const categoryOptions = [
     { value: 'all', label: 'Все категории' },
-    { value: 'mens', label: (<><Mens className='lol' /> Мужское</>) },
+    { value: 'mens', label: (<><Mens /> Мужское</>) },
     { value: 'coats', label: 'Пальто' },
     { value: 'jackets', label: 'Пиджаки' },
     { value: 'trousers', label: 'Брюки' },
-    { value: 'womens', label: (<><Womens /> Женское</>) },
+    { value: 'womens', label:(<><Womens /> Женское</>) },
     { value: 'cardigans', label: 'Кардиганы' },
     { value: 'blouses', label: 'Блузки' },
     { value: 'skirts', label: 'Юбки' },
@@ -41,8 +39,8 @@ const categoryOptions = [
 
 const availabilityOptions = [
     { value: 'all', label: 'Все варианты' },
-    { value: 'inStock', label: 'В наличии' },
-    { value: 'onTheWay', label: 'В пути' },
+    { value: 'inStock', label: (<>&#128092; В наличии</>) },
+    { value: 'onTheWay', label: (<>&#128674; В пути</>) },
     { value: 'underOrder', label: 'Под заказ' },
 ];
 
@@ -59,6 +57,7 @@ const FilterBar: React.FC = () => {
     return (
         <div className={styles.filter}>
             <div className={styles.filter_inputs}>
+
                 <MyMultiSelect placeholder="Тип размера" options={sizeTypeOptions} selectedValues={selectedSizeType} onChange={handleSingleSelectChange(setSelectedSizeType)} />
                 <MyMultiSelect placeholder="Размер" options={sizeOptions} selectedValues={selectedSize} onChange={setSelectedSize} enforceSelectionLimit={true} maxSelections={5} />
                 <MyMultiSelect placeholder="Категория" options={categoryOptions} selectedValues={selectedCategory} onChange={setSelectedCategory} />
