@@ -45,10 +45,22 @@ const BayerComponent: React.FC = () => {
             <Swiper
                 className={styles.slider}
                 spaceBetween={50}
-                slidesPerView={2}
-                loop={true} 
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                slidesPerView={1.5}
+                loop={true}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1.5,
+                        spaceBetween: 8
+                    },
+                    450: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    550: {
+                        slidesPerView: 3,
+                        spaceBetween: 16
+                    }
+                }}
             >
                 {apiResponse.data.map(bayer => (
                     <SwiperSlide key={bayer.id} className={styles.slide}>
