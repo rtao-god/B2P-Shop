@@ -16,10 +16,12 @@ export default function MainPage({ }) {
             <div className={styles.container}>
                 <MainSlider />
                 <Nav />
-                <FilterBar />
+            </div>
+            <FilterBar />
+            <div className={styles.container}>
                 <Notifications />
                 <Bayer />
-            </div>
+            </div >
             <Bestsellers />
             <div className={styles.container}>
                 <InstallationInstructions />

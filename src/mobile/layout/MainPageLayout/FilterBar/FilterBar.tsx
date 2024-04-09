@@ -61,12 +61,22 @@ const FilterBar: React.FC = () => {
             <MyMultiSelect placeholder="Категория" options={categoryOptions} selectedValues={selectedCategory} onChange={setSelectedCategory} />
             <MyMultiSelect placeholder="Наличие" options={availabilityOptions} selectedValues={selectedAvailability} onChange={setSelectedAvailability} />
             <div className={styles.range_filter_container}>
-                <div className={styles.input_wrapper}><MyNumberInput name="price_from" placeholder="От" /><span className={styles.currency_symbol}>₽</span></div>
-                <div className={styles.input_wrapper}><MyNumberInput name="price_to" placeholder="До" /><span className={styles.currency_symbol}>₽</span></div>
+                <div className={styles.price_range_group}>
+                    <div className={styles.input_wrapper}>
+                        <MyNumberInput name="price_from" placeholder="От" />
+                        <span className={styles.currency_symbol}>₽</span>
+                    </div>
+                    <div className={styles.input_wrapper}>
+                        <MyNumberInput name="price_to" placeholder="До" />
+                        <span className={styles.currency_symbol}>₽</span>
+                    </div>
+                </div>
             </div>
             <div className={styles.range_filter_container}>
-                <div className={styles.input_wrapper}><input type="number" name="quantity" placeholder="От" /><span className={styles.currency_symbol}>шт.</span></div>
-                <div className={styles.input_wrapper}><input type="number" name="quantity" placeholder="До" /><span className={styles.currency_symbol}>шт.</span></div>
+                <div className={styles.price_range_group}>
+                    <div className={styles.input_wrapper}><input type="number" name="quantity" placeholder="От" /><span className={styles.currency_symbol}>шт.</span></div>
+                    <div className={styles.input_wrapper}><input type="number" name="quantity" placeholder="До" /><span className={styles.currency_symbol}>шт.</span></div>
+                </div>
             </div>
             <button className={styles.search_button}>Найти</button>
         </div>
