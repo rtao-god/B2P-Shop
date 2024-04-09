@@ -4,52 +4,39 @@ import useApi from '@hooks/useApi';
 import styles from './MainSlider.module.sass';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Chevron from '@/components/common/icons/Chevron';
 
 interface Slide {
     id: string;
     path: string;
 }
 
-interface CustomArrowProps {
-    className?: string;
-    style?: React.CSSProperties;
-    onClick?: () => void;
-    direction: 'left' | 'right';
+interface ApiResponse {
+    data: Slide[];
+    meta: {
+        limit: number;
+        page: number;
+        total: number;
+    };
 }
 
-const CustomArrow: React.FC<CustomArrowProps> = ({ className, style, onClick, direction }) => {
-    const arrowClass = `${styles.slick_arrow} ${direction === 'left' ? styles.slick_prev : styles.slick_next}`;
-
-    return (
-        <div className={`${className || ''} ${arrowClass}`} style={style} onClick={onClick}>
-            <Chevron />
-        </div>
-    );
-};
-
 const MainSlider: React.FC = () => {
-    const { data: slides, isLoading, error } = useApi<Slide[]>('/main-page/slides');
+    const { data: apiResponse, isLoading, error } = useApi<ApiResponse>('/stories');
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error fetching slides: {error.message}</div>;
-    if (!slides || slides.length === 0) return <div>No slides found.</div>;
+    if (!apiResponse || !apiResponse.data.length) return <div>No slides found.</div>;
 
     const settings = {
-        dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1.5,
+        slidesToShow: 2,
         slidesToScroll: 1,
         adaptiveHeight: true,
-        nextArrow: <CustomArrow direction="right" />,
-        prevArrow: <CustomArrow direction="left" />,
     };
 
     return (
-        <div>
-            {/* <Slider {...settings}>
-                 {slides.map((slide) => (
+        <Slider {...settings}>
+            {apiResponse.data.map(slide => (
                 <div key={slide.id} style={{ width: '100%', position: 'relative' }}>
                     <div className={styles.slide}
                         style={{
@@ -60,9 +47,8 @@ const MainSlider: React.FC = () => {
                         }}
                     ></div>
                 </div>
-            ))} 
-        </Slider> */}
-        </div>
+            ))}
+        </Slider>
     );
 };
 
