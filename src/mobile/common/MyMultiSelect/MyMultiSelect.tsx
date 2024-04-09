@@ -112,6 +112,10 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
     prepareOptionsForRender()
   };
 
+  const handleDoneClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className={styles.multiSelect} ref={wrapperRef}>
       <div className={styles.dropdown_button} onClick={toggleDropdown}>
@@ -130,37 +134,43 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
 
       {isOpen && (
         <div className={styles.dropdown}>
-          <div className={styles.search_button}>
-            <input
-              type="text"
-              placeholder="Поиск..."
-              value={filterText}
-              onChange={(e) => {
-                setFilterText(e.target.value);
-                setErrorMessage(null);
-                const filtered = options.filter(option =>
-                  option.label.toString().toLowerCase().includes(e.target.value.toLowerCase())
-                );
-                const sorted = filtered.sort((a, b) => {
-                  const isSelectedA = selectedValues.includes(a.value) ? -1 : 1;
-                  const isSelectedB = selectedValues.includes(b.value) ? -1 : 1;
-                  return isSelectedA - isSelectedB;
-                });
-                setSortedAndFilteredOptions(sorted);
-              }}
-              className={`${styles.search_input} ${filterText ? styles.search_input_active : ''}`}
-            />
-            <div className={styles.search_input_icons}>
-              {filterText
-                ? <button onClick={() => setFilterText("")} className={styles.cross_button}>
-                  <Cross color="#B1B1B1" />
-                </button>
-                : <Magnifier />
-              }
+          <div className={styles.dropdown_content}>
+            <button className={styles.close_button} onClick={handleDoneClick}>
+              <Cross color={"#191C1F"} />
+            </button>
+            <div className={styles.search_button}>
+              <input
+                type="text"
+                placeholder="Поиск..."
+                value={filterText}
+                onChange={(e) => {
+                  setFilterText(e.target.value);
+                  setErrorMessage(null);
+                  const filtered = options.filter(option =>
+                    option.label.toString().toLowerCase().includes(e.target.value.toLowerCase())
+                  );
+                  const sorted = filtered.sort((a, b) => {
+                    const isSelectedA = selectedValues.includes(a.value) ? -1 : 1;
+                    const isSelectedB = selectedValues.includes(b.value) ? -1 : 1;
+                    return isSelectedA - isSelectedB;
+                  });
+                  setSortedAndFilteredOptions(sorted);
+                }}
+                className={`${styles.search_input} ${filterText ? styles.search_input_active : ''}`}
+              />
+              <div className={styles.search_input_icons}>
+                {filterText
+                  ? <button onClick={() => setFilterText("")} className={styles.cross_button}>
+                    <Cross color="#B1B1B1" />
+                  </button>
+                  : <Magnifier />
+                }
+              </div>
             </div>
+            {errorMessage && <div className={styles.error_message}>{errorMessage}</div>}
+            {prepareOptionsForRender()}
+            <button className={styles.done_button} onClick={handleDoneClick}>Готово</button>
           </div>
-          {errorMessage && <div className={styles.error_message}>{errorMessage}</div>}
-          {prepareOptionsForRender()}
         </div>
       )}
     </div>

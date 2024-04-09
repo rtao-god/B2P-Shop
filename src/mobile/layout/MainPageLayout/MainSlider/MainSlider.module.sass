@@ -1,50 +1,21 @@
-.main_slider
-    margin: 16px 0 52px 0
-    box-shadow: 0px 4px 24px 0px #1976D23D
+.swiper
+    margin: 16px 0
 
-.slide
-    position: relative
-    left: -50%
-    padding-right: 16px
-    box-shadow: 0px 4px 24px 0px #1976D23D
-    cursor: pointer
-    border-radius: 8px
-    background-color: rgba(0, 0, 0, 0.0)
-  
+    .img_wrapper
+        display: inline-block
+        padding: 3px // This creates the gap between the image and the border
+        border-radius: 15px // Adjusts for the border + padding
+        background: linear-gradient(213.61deg, rgba(96, 175, 255, 0.6) 4.17%, #4791DB 21.46%, #418CD7 27.94%, #A8D3FF 75.06%)
+        box-sizing: border-box
 
-.slick_arrow
-    position: absolute
-    top: 50%
-    width: 32px !important
-    height: 32px !important
-    background-color: white !important
-    border-radius: 50%
-    box-shadow: 0px 4px 24px 0px #1976D229
-    display: flex !important
-    align-items: center !important
-    justify-content: center !important
-    cursor: pointer
-    transform: translate(0, -50%)
-    font-size: 0 !important
-    z-index: 1
+.img_border
+    display: block
+    padding: 1px // Adjust if needed to ensure the border appears with the desired thickness
+    border-radius: 12px // Keeps the border rounded
+    overflow: hidden // Ensures the inner img border-radius is clipped
 
-.slick_prev
-    left: -1% !important
-    svg
-        transform: rotate(90deg)
-        width: 13px
-        height: 9px
-        position: relative
-        left: -1px
-
-.slick_next
-    right: -1% !important
-    svg
-        transform: rotate(-90deg)
-        width: 13px
-        height: 9px
-        position: relative
-        left: 1px
-
-.slick_arrow::before
-    display: none !important
+img
+    width: 100%
+    height: auto
+    display: block
+    border-radius: 12px // Ensures the image itself also has rounded corners
