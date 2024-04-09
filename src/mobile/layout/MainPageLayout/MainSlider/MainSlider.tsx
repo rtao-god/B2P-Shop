@@ -46,6 +46,7 @@ const MainSlider: React.FC = () => {
             spaceBetween={30}
             slidesPerView={3}
             className={styles.swiper}
+            loop={true}
         >
             {apiResponse.data.map(slide => (
                 <SwiperSlide key={slide.id}>
