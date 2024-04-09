@@ -1,21 +1,24 @@
 .multiSelect
     border: 0
     box-shadow: none
-    margin-bottom: 32px
+    margin-top: -2%
+    margin-bottom: 9%
     color: #ABABAD
-    @include paragraph-text(16, 24)
+    font-size: 16px
     white-space: nowrap
     overflow: hidden
     text-overflow: ellipsis
     padding-bottom: 1px
     box-shadow: 0px 1px 0px 0px grey
-    padding-bottom: 10px
+    padding-bottom: 6%
+
+.multiSelect:last-child
+    margin-bottom: 0px !important
 
 .contentWrapper
     margin: 0 auto
-    max-width: 720px // Adjust this as needed
+    max-width: 720px
     width: 100%
-    // Additional styling as needed for your content
 
 .dropdown
     position: fixed
@@ -120,10 +123,13 @@
         border: 0
         border-radius: 4px
         background-color: #F9F9F9
-        color: #ABABAD
+        color: #1976D2
         @include text-size-body-3
         transition: all 0.3s ease
         height: 40px
+        &::placeholder
+            color: #ABABAD
+
     .search_input_active
         color: #1976D2
         background-color: #B1B1B13D
@@ -154,6 +160,9 @@
         position: absolute
         top: 24%
         left: 17px
+
+.lastMultiSelect
+    margin-bottom: 6px
 
 @media (min-width: 320px) and (max-width: 420px)
     .contentWrapper

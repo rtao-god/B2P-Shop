@@ -59,7 +59,7 @@ const FilterBar: React.FC = () => {
             <MyMultiSelect placeholder="Тип размера" options={sizeTypeOptions} selectedValues={selectedSizeType} onChange={handleSingleSelectChange(setSelectedSizeType)} />
             <MyMultiSelect placeholder="Размер" options={sizeOptions} selectedValues={selectedSize} onChange={setSelectedSize} enforceSelectionLimit={true} maxSelections={5} />
             <MyMultiSelect placeholder="Категория" options={categoryOptions} selectedValues={selectedCategory} onChange={setSelectedCategory} />
-            <MyMultiSelect placeholder="Наличие" options={availabilityOptions} selectedValues={selectedAvailability} onChange={setSelectedAvailability} />
+            <MyMultiSelect placeholder="Наличие" options={availabilityOptions} selectedValues={selectedAvailability} onChange={setSelectedAvailability} isLast={true} />
             <div className={styles.range_filter_container}>
                 <div className={styles.price_range_group}>
                     <div className={styles.input_wrapper}>

@@ -15,6 +15,7 @@ interface MyMultiSelectProps {
   onChange: (values: string[]) => void;
   enforceSelectionLimit?: boolean;
   maxSelections?: number;
+  isLast?: boolean;
 }
 
 const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
@@ -24,7 +25,9 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
   onChange,
   enforceSelectionLimit = false,
   maxSelections = 5,
+  isLast = false,
 }) => {
+  const containerStyle = isLast ? { marginBottom: '0px' } : {};
   const [isOpen, setIsOpen] = useState(false);
   const [filterText, setFilterText] = useState('');
   const [sortedAndFilteredOptions, setSortedAndFilteredOptions] = useState<OptionType[]>([]);
@@ -61,7 +64,7 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
 
   const handleOptionClick = (value: string) => {
     if (enforceSelectionLimit && selectedValues.length >= maxSelections && !selectedValues.includes(value)) {
-      setErrorMessage(`You can select up to ${maxSelections} options.`);
+      setErrorMessage(`Можно добавить не более ${maxSelections} размеров.`);
       return;
     } else {
       setErrorMessage(null);
@@ -115,9 +118,11 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
     setIsOpen(false);
   };
 
+  const multiSelectClass = `${styles.multiSelect} ${isLast ? styles.lastMultiSelect : ''}`;
+
   return (
-    <div className={styles.multiSelect} ref={wrapperRef}>
-      <div className={styles.contentWrapper}> 
+    <div className={multiSelectClass} ref={wrapperRef}>
+      <div className={styles.contentWrapper}>
         <div className={styles.dropdown_button} onClick={toggleDropdown}>
           {selectedValues.length > 0 ? selectedValues.map(value => {
             const selectedOption = options.find(option => option.value === value);
@@ -141,7 +146,7 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
               <div className={styles.search_button}>
                 <input
                   type="text"
-                  placeholder="Search..."
+                  placeholder="Поиск"
                   value={filterText}
                   onChange={(e) => {
                     setFilterText(e.target.value);
@@ -169,11 +174,11 @@ const MyMultiSelect: React.FC<MyMultiSelectProps> = ({
               </div>
               {errorMessage && <div className={styles.error_message}>{errorMessage}</div>}
               {prepareOptionsForRender()}
-              <button className={styles.done_button} onClick={handleDoneClick}>Done</button>
+              <button className={styles.done_button} onClick={handleDoneClick}>Готово</button>
             </div>
           </div>
         )}
-      </div> 
+      </div>
     </div>
   );
 };

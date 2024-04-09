@@ -6,11 +6,8 @@
         outline: none
 
 .range_filter_container
-    display: grid
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))
-    gap: 16px
     border-bottom: 1px solid grey
-    padding-bottom: 16px
+    padding: 16px 0
 
 .price_range_group
     display: flex
@@ -20,13 +17,11 @@
     position: relative
 
     input
-        color: #1976D2
+        color: #ABABAD
         @include paragraph-text(16, 24)
         border: 0
-        padding: 16px 0
         border-right: 2px solid rgba(239, 239, 239, 0.549)
         position: relative
-        max-width: 100%
 
     .currency_symbol
         position: absolute
