@@ -1,25 +1,27 @@
 .bestsellers_h4
     @include text-size-h4
+    margin: 0 auto
 
 .bestsellers
     margin: 12px auto 24px auto
 
     .bestseller
         display: flex
-        justify-content: center
-        flex-direction: column
-        align-items: center
         gap: 10px
         box-shadow: 0px 4px 24px 0px rgba(25, 118, 210, 0.1607843137)
         border-radius: 12px
         padding: 12px 0
         margin-bottom: 4px
+        flex-direction: column
+        align-items: center
+        background-color: white
 
         .product_overview
-            margin: 0 auto
+            width: 100%
             display: flex
             align-items: center
-            justify-content: flex-start
+            justify-content: center
+            margin: 0 auto
 
 .img
     width: 80px
@@ -37,11 +39,10 @@
     flex-wrap: wrap
     justify-content: space-between
     align-items: center
-    margin-bottom: 8px
     white-space: nowrap
     overflow: hidden
     text-overflow: ellipsis
-
+    background-color: #fff
     .store_svg
         max-width: 62px
         height: 8px
@@ -50,14 +51,12 @@
         @include paragraph-text(12, 20)
 
     .product_title
-        // flex-grow: 1
         font-weight: 400
         white-space: nowrap
         overflow: hidden
         text-overflow: ellipsis
         max-width: 88%
         @include paragraph-text(14, 16)
-        // max-width:88 calc(100% - 40px)
 
     .shop_title
         color: #B1B1B1
@@ -106,7 +105,6 @@
 .stocks
     display: flex
     gap: 4px
-    // margin: 0 auto
 
     span
         cursor: pointer
@@ -117,13 +115,13 @@
         @include paragraph-text(11, 12)
 
 @media (min-width: 320px) and (max-width: 420px)
-    .product_overview
+    .product_overview, .bestsellers_h4
         max-width: 288px
 
 @media (min-width: 420px) and (max-width: 520px)
-    .product_overview
+    .product_overview, .bestsellers_h4
         max-width: 360px
 
 @media (min-width: 520px) and (max-width: 720px)
-    .product_overview
+    .product_overview, .bestsellers_h4
         max-width: 460px
