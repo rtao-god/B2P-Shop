@@ -49,7 +49,7 @@ const MainSlider: React.FC = () => {
     return (
         <div className={styles.main_slider}>
             <Slider {...settings}>
-                {slides.map((slide) => (
+                {slides.map(slide => (
                     <div key={slide.id} style={{ width: '100%', position: 'relative' }}>
                         <div className={styles.slide}
                             style={{
