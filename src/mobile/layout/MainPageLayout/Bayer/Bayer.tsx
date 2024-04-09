@@ -45,15 +45,15 @@ const BayerComponent: React.FC = () => {
             <Swiper
                 className={styles.slider}
                 spaceBetween={50}
-                slidesPerView={1.5}
+                slidesPerView={2}
                 loop={true}
                 breakpoints={{
                     320: {
-                        slidesPerView: 1.5,
+                        slidesPerView: 2,
                         spaceBetween: 8
                     },
                     450: {
-                        slidesPerView: 2,
+                        slidesPerView: 2.2,
                         spaceBetween: 30
                     },
                     550: {
