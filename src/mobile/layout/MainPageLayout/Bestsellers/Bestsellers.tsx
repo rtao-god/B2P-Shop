@@ -79,7 +79,7 @@ const Bestsellers: React.FC = () => {
                                 <div><img className={styles.store_svg} src={product.store.file.path} alt={product.store.title} /></div>
                             </div>
 
-                            <div className={styles.row}>
+                            <div className={`${styles.row} ${styles.product_title_wrapper}`}>
                                 <h4 className={styles.product_title}>{product.title}</h4>
                                 <Favourites />
                             </div>

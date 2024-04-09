@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import styles from './Bayer.module.sass';
 import useApi from '@/hooks/useApi';
 import Message from '@/components/common/icons/Message';
 import Favourites from '@/components/common/icons/Favourites';
+import Slider from 'react-slick';
 
 interface Picture {
     id: string;
@@ -38,12 +38,19 @@ const BayerComponent: React.FC = () => {
     if (error) return <div>Ошибка: {error.message}</div>;
     if (!apiResponse || !apiResponse.data) return <div>Данные не найдены.</div>;
 
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+    };
+
     return (
         <div>
             <h4>Байеры</h4>
-            <div className={styles.cities}>
+            <Slider className={styles.slider} {...settings}>
                 {apiResponse.data.map(bayer => (
-                    <div key={bayer.id} className={styles.city}>
+                    <div key={bayer.id} className={styles.slide}>
                         <img className={styles.img} src={bayer.picture.path} alt={bayer.shop_name} />
                         <div className={styles.favorites}>
                             <Favourites />
@@ -52,7 +59,7 @@ const BayerComponent: React.FC = () => {
                         <p className={styles.comments}> <Message /> {bayer.comments} </p>
                     </div>
                 ))}
-            </div>
+            </Slider>
         </div>
     );
 }

@@ -3,11 +3,12 @@
 
 .bestsellers
     margin: 12px auto 24px auto
+
     .bestseller
         display: flex
         justify-content: center
         flex-direction: column
-        align-items: flex-start
+        align-items: center
         gap: 10px
         box-shadow: 0px 4px 24px 0px rgba(25, 118, 210, 0.1607843137)
         border-radius: 12px
@@ -54,9 +55,9 @@
         white-space: nowrap
         overflow: hidden
         text-overflow: ellipsis
-        max-width: 36%
+        max-width: 88%
         @include paragraph-text(14, 16)
-        // max-width: calc(100% - 40px)
+        // max-width:88 calc(100% - 40px)
 
     .shop_title
         color: #B1B1B1
@@ -86,6 +87,13 @@
         width: 12.63px
         height: 12px
 
+.product_title_wrapper
+    position: relative
+    svg
+        position: absolute
+        top: 0%
+        right: 0%
+
 .stocks_wrapper
     display: flex
     justify-content: space-between
@@ -98,7 +106,7 @@
 .stocks
     display: flex
     gap: 4px
-    margin: 0 auto
+    // margin: 0 auto
 
     span
         cursor: pointer
